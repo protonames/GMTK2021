@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PNTemplate
 {
-	public class GroupController : MonoBehaviour
+	public class PlayerController : MonoBehaviour
 	{
 		[SerializeField]
 		private float mouseDistanceFollowThreshold = .5f;
