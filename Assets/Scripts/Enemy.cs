@@ -16,6 +16,12 @@ namespace PNTemplate
 		private float sightRadius = 18f;
 
 		private Character target;
+		private Rigidbody2D rb;
+
+		private void Awake()
+		{
+			rb = GetComponent<Rigidbody2D>();
+		}
 
 		private void Start()
 		{
@@ -42,7 +48,7 @@ namespace PNTemplate
 
 			if (HelperExtras.IsInsideCameraViewport(newPosition))
 			{
-				myTransform.position = newPosition;
+				rb.velocity = transform.right * moveSpeed;
 			}
 		}
 

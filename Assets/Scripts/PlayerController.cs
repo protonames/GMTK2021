@@ -1,3 +1,4 @@
+using System;
 using PNLib.Utility;
 using PNTemplate._Temp;
 using UnityEngine;
@@ -12,8 +13,12 @@ namespace PNTemplate
 		[SerializeField]
 		private float moveSpeed = 6f;
 
-		[SerializeField]
-		private Character[] characters;
+		private Rigidbody2D rb;
+
+		private void Awake()
+		{
+			rb = GetComponent<Rigidbody2D>();
+		}
 
 		private void Update()
 		{
@@ -37,7 +42,9 @@ namespace PNTemplate
 			var newPosition = myTransform.position + myTransform.right * (moveSpeed * Time.deltaTime);
 
 			if (HelperExtras.IsInsideCameraViewport(newPosition))
-				myTransform.position = newPosition;
+			{
+				rb.velocity = transform.right * moveSpeed;
+			}
 		}
 
 		private void RotateTowardsMouse()
