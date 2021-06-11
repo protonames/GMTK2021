@@ -83,6 +83,9 @@ namespace PNTemplate
 
 		private void Fire()
 		{
+			if (!target)
+				return;
+			
 			Vector3 spawnAngle = firePoint.eulerAngles;
 			Vector3 spawnPoint = firePoint.position;
 			Projectile projectile = Instantiate(servantData.ProjectilePrefab, spawnPoint, Quaternion.Euler(spawnAngle));

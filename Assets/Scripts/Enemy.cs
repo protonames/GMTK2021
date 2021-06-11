@@ -1,3 +1,4 @@
+using System;
 using PNLib.Utility;
 using PNTemplate._Temp;
 using UnityEngine;
@@ -17,10 +18,27 @@ namespace PNTemplate
 
 		private Servant target;
 		private Rigidbody2D rb;
+		private Health health;
 
 		private void Awake()
 		{
 			rb = GetComponent<Rigidbody2D>();
+			health = GetComponent<Health>();
+		}
+
+		private void OnEnable()
+		{
+			health.OnDiedEvent += Die;
+		}
+
+		private void OnDisable()
+		{
+			health.OnDiedEvent -= Die;
+		}
+
+		private void Die()
+		{
+			Destroy(gameObject);
 		}
 
 		private void Start()
