@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-95457555174445839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97d88f7d353534a4fbdeb11196057db7, type: 3}
+  m_Name: UploadItch
+  m_EditorClassIdentifier: 
+  actionType: 1
+  actionName: UploadItch
+  note: 
+  actionEnabled: 0
+  filter:
+    condition: 0
+    clauses: []
+  pathToButlerExe: C:\ProgramData\chocolatey\bin\butler.exe
+  nameOfItchUser: protonames
+  nameOfItchGame: PNTemplate
+  useGeneratedBuildVersion: 1
+  channelName: $PLATFORM
+  showUploadProgress: 1
+  itchChannelOverride: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5886119a5c7b34d8872ab527ca3e1b, type: 3}
+  m_Name: SuperUnityBuildSettings
+  m_EditorClassIdentifier: 
+  _basicSettings:
+    baseBuildFolder: Builds
+    buildPath: $PLATFORM/$VERSION
+    openFolderPostBuild: 1
+  _productParameters:
+    buildCounter: 0
+    buildVersion: 
+    versionTemplate: 1.$BUILD
+    autoGenerate: 1
+    syncWithPlayerSettings: 0
+  _releaseTypeList:
+    releaseTypes:
+    - typeName: Release
+      bundleIdentifier: com.Protonames.PNTemplate
+      companyName: Protonames
+      productName: PNTemplate
+      buildOptions: 0
+      customDefines: 
+      sceneList:
+        enabledScenes: []
+  _platformList:
+    platforms: []
+  _projectConfigurations:
+    configSet:
+      _Buckets: ffffffffffffffff00000000
+      _HashCodes: 2d6dfd480000000000000000
+      _Next: ffffffff0000000000000000
+      _Count: 1
+      _Version: 1
+      _FreeList: -1
+      _FreeCount: 0
+      _Keys:
+      - Release
+      - 
+      - 
+      _Values:
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+    showViewOptions: 0
+    showConfigs: 0
+    showBuildInfo: 0
+    hideDisabled: 0
+    treeView: 0
+    selectedKeyChain: 
+  _preBuildActions:
+    buildActions: []
+  _postBuildActions:
+    buildActions:
+    - {fileID: -95457555174445839}
+--- !u!114 &239349012037090571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2786f6b2301a94f4288672ff5305244c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  distributionList:
+    distributions: []
+  architectures:
+  - target: 5
+    name: Windows x86
+    enabled: 1
+    binaryNameFormat: '{0}.exe'
+  - target: 19
+    name: Windows x64
+    enabled: 0
+    binaryNameFormat: '{0}.exe'
+  variants: []
+  platformName: PC
+  dataDirNameFormat: '{0}_Data'
+  targetGroup: 1
