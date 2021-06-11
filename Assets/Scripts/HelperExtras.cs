@@ -40,7 +40,7 @@ namespace PNTemplate._Temp
 				shakeSource = Helper.Camera.GetComponent<CinemachineImpulseSource>();
 				CinemachineImpulseManager.Instance.IgnoreTimeScale = true;
 			}
-			
+
 			shakeSource.m_ImpulseDefinition.m_AmplitudeGain = amplitude;
 			shakeSource.m_ImpulseDefinition.m_FrequencyGain = frequency;
 			shakeSource.m_ImpulseDefinition.m_TimeEnvelope.m_SustainTime = duration;

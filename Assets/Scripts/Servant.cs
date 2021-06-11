@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using PNLib.Utility;
@@ -16,7 +15,6 @@ namespace PNTemplate
 		private ServantData servantData;
 
 		private Health health;
-
 		private Enemy target;
 
 		private void Awake()
@@ -42,7 +40,8 @@ namespace PNTemplate
 
 		private void Update()
 		{
-			if (!target && Helper.GetClosestObjectInCircleRadius(transform.position, servantData.SightRadius, out Enemy hit))
+			if (!target
+				&& Helper.GetClosestObjectInCircleRadius(transform.position, servantData.SightRadius, out Enemy hit))
 			{
 				target = hit;
 			}
@@ -52,14 +51,6 @@ namespace PNTemplate
 			}
 		}
 
-		
-		private void RotateTowardsTarget()
-		{
-			//TODO: Lerp rotation here
-			float angle = Helper.GetAngleFromVector(transform.position.DirectionTo(target.transform.position));
-			transform.eulerAngles = new Vector3(0, 0, angle);
-		}
-		
 		public void Connect(King king, List<Servant> servants)
 		{
 			gameObject.AddComponent<DistanceJoint2D>().connectedBody = king.GetComponent<Rigidbody2D>();
@@ -81,11 +72,25 @@ namespace PNTemplate
 			}
 		}
 
+		private void RotateTowardsTarget()
+		{
+			if (!target)
+			{
+				return;
+			}
+
+			//TODO: Lerp rotation here
+			float angle = Helper.GetAngleFromVector(transform.position.DirectionTo(target.transform.position));
+			transform.eulerAngles = new Vector3(0, 0, angle);
+		}
+
 		private void Fire()
 		{
 			if (!target)
+			{
 				return;
-			
+			}
+
 			Vector3 spawnAngle = firePoint.eulerAngles;
 			Vector3 spawnPoint = firePoint.position;
 			Projectile projectile = Instantiate(servantData.ProjectilePrefab, spawnPoint, Quaternion.Euler(spawnAngle));
@@ -98,4 +103,3 @@ namespace PNTemplate
 		}
 	}
 }
-

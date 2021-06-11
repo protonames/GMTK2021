@@ -1,4 +1,3 @@
-using System;
 using PNLib.Utility;
 using PNTemplate._Temp;
 using UnityEngine;
@@ -16,14 +15,19 @@ namespace PNTemplate
 		[SerializeField]
 		private float sightRadius = 18f;
 
-		private Servant target;
-		private Rigidbody2D rb;
 		private Health health;
+		private Rigidbody2D rb;
+		private Servant target;
 
 		private void Awake()
 		{
 			rb = GetComponent<Rigidbody2D>();
 			health = GetComponent<Health>();
+		}
+
+		private void Start()
+		{
+			LookForTarget();
 		}
 
 		private void OnEnable()
@@ -34,16 +38,6 @@ namespace PNTemplate
 		private void OnDisable()
 		{
 			health.OnDiedEvent -= Die;
-		}
-
-		private void Die()
-		{
-			Destroy(gameObject);
-		}
-
-		private void Start()
-		{
-			LookForTarget();
 		}
 
 		private void Update()
@@ -57,6 +51,11 @@ namespace PNTemplate
 				RotateTowardsTarget();
 				Move();
 			}
+		}
+
+		private void Die()
+		{
+			Destroy(gameObject);
 		}
 
 		private void Move()

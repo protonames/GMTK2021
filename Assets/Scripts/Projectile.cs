@@ -53,16 +53,16 @@ namespace PNTemplate
 			}
 		}
 
-		private void Die()
-		{
-			Destroy(gameObject);
-		}
-
 		public void Launch(bool playerProjectile, float speed, int damage)
 		{
 			PlayerProjectile = playerProjectile;
 			this.damage = damage;
 			rb.velocity = transform.right * speed;
+		}
+
+		private void Die()
+		{
+			Destroy(gameObject);
 		}
 	}
 }

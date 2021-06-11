@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using PNTemplate;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "Servant Data", fileName = "New Servant", order = 0)]
 public class ServantData : ScriptableObject
 {
-	public PNTemplate.Projectile ProjectilePrefab;
 	public float FireRate = .24f;
-	public float ProjectileSpeed;
 	public int ProjectileDamage;
+	public Projectile ProjectilePrefab;
+	public float ProjectileSpeed;
 	public float SightRadius = 8;
 }

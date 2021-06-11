@@ -9,6 +9,9 @@ namespace PNTemplate
 	public class King : MonoBehaviour
 	{
 		[SerializeField]
+		private float distanceFromKing;
+
+		[SerializeField]
 		private float mouseDistanceFollowThreshold = .5f;
 
 		[SerializeField]
@@ -17,9 +20,6 @@ namespace PNTemplate
 		[SerializeField]
 		private List<Servant> servants;
 
-		[SerializeField]
-		private float distanceFromKing;
-		
 		private Rigidbody2D rb;
 
 		private void Awake()
@@ -41,12 +41,18 @@ namespace PNTemplate
 			}
 		}
 
+		public void AddServant(Servant servant)
+		{
+			servants.Add(servant);
+			StartCoroutine(OrganizeServants());
+		}
+
 		private void Attack() { }
 
 		private void Move()
 		{
 			Transform myTransform = transform;
-			var newPosition = myTransform.position + myTransform.right * (moveSpeed * Time.deltaTime);
+			Vector3 newPosition = myTransform.position + (myTransform.right * (moveSpeed * Time.deltaTime));
 
 			if (HelperExtras.IsInsideCameraViewport(newPosition))
 			{
@@ -68,15 +74,10 @@ namespace PNTemplate
 			transform.eulerAngles = new Vector3(0, 0, angle);
 		}
 
-		public void AddServant(Servant servant)
-		{
-			servants.Add(servant);
-			StartCoroutine(OrganizeServants());
-		}
-
 		private IEnumerator OrganizeServants()
 		{
 			int degreeStep = 360 / servants.Count;
+
 			for (int i = 0; i < servants.Count; i++)
 			{
 				Servant servant = servants[i];
@@ -84,9 +85,9 @@ namespace PNTemplate
 				servant.DisconnectAll();
 				servant.transform.position = transform.position + (position * distanceFromKing);
 			}
-			
+
 			yield return null;
-			
+
 			foreach (Servant servant in servants)
 			{
 				servant.Connect(this, servants);
