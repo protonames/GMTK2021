@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using PNLib.Utility;
-using PNTemplate._Temp;
 using UnityEngine;
 
 namespace PNTemplate
@@ -12,10 +10,13 @@ namespace PNTemplate
 		private float distanceFromKing;
 
 		[SerializeField]
-		private float mouseDistanceFollowThreshold = .5f;
+		private float moveSpeed = 6f;
 
 		[SerializeField]
-		private float moveSpeed = 6f;
+		private float rotationSpeed = 180f;
+
+		[SerializeField]
+		private Transform servantContainer;
 
 		[SerializeField]
 		private List<Servant> servants;
@@ -29,52 +30,41 @@ namespace PNTemplate
 
 		private void Update()
 		{
-			RotateTowardsMouse();
-
-			if (Input.GetMouseButton(0))
-			{
-				Attack();
-			}
-			else
-			{
-				Move();
-			}
+			RotateServantsTowardsMouse();
+			Move();
 		}
 
 		public void AddServant(Servant servant)
 		{
 			servants.Add(servant);
-			StartCoroutine(OrganizeServants());
+			servant.transform.SetParent(servantContainer);
+			OrganizeServants();
 		}
-
-		private void Attack() { }
 
 		private void Move()
 		{
 			Transform myTransform = transform;
-			Vector3 newPosition = myTransform.position + (myTransform.right * (moveSpeed * Time.deltaTime));
+			Vector3 nextPosition = myTransform.position + (myTransform.right * (moveSpeed * Time.deltaTime));
 
-			if (HelperExtras.IsInsideCameraViewport(newPosition))
+			if (HelperExtras.IsInsideCameraViewport(nextPosition))
 			{
 				rb.velocity = transform.right * moveSpeed;
 			}
+			else
+			{
+				rb.velocity = Vector2.zero;
+			}
 		}
 
-		private void RotateTowardsMouse()
+		private void RotateServantsTowardsMouse()
 		{
-			//TODO: Lerp rotation so it doesn't rotate instantly -- Prevents crazy mouse spinning around character
 			Vector3 mouseWorldPosition = Helper.GetMouseWorldPosition();
-
-			if (Vector2.Distance(transform.position, mouseWorldPosition) < mouseDistanceFollowThreshold)
-			{
-				return;
-			}
-
-			float angle = Helper.GetAngleFromVector(transform.position.DirectionTo(mouseWorldPosition));
+			float angle = Helper.GetAngleFromVector(servantContainer.position.DirectionTo(mouseWorldPosition));
+			angle = Mathf.MoveTowardsAngle(transform.eulerAngles.z, angle, rotationSpeed * Time.deltaTime);
 			transform.eulerAngles = new Vector3(0, 0, angle);
 		}
 
-		private IEnumerator OrganizeServants()
+		private void OrganizeServants()
 		{
 			int degreeStep = 360 / servants.Count;
 
@@ -82,15 +72,8 @@ namespace PNTemplate
 			{
 				Servant servant = servants[i];
 				Vector3 position = HelperExtras.GetNormalizedCircularPosition(i * degreeStep);
-				servant.DisconnectAll();
 				servant.transform.position = transform.position + (position * distanceFromKing);
-			}
-
-			yield return null;
-
-			foreach (Servant servant in servants)
-			{
-				servant.Connect(this, servants);
+				servant.GetComponent<Rigidbody2D>().isKinematic = true;
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PNTemplate._Temp
+namespace PNTemplate
 {
 	public class DestroyAfterSeconds : MonoBehaviour
 	{

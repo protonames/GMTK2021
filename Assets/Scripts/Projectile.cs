@@ -1,5 +1,4 @@
-﻿using PNTemplate._Temp;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PNTemplate
 {

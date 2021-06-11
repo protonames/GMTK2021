@@ -1,5 +1,4 @@
 using PNLib.Utility;
-using PNTemplate._Temp;
 using UnityEngine;
 
 namespace PNTemplate
@@ -61,18 +60,22 @@ namespace PNTemplate
 		private void Move()
 		{
 			Transform myTransform = transform;
-			Vector3 newPosition = myTransform.position + (myTransform.right * (moveSpeed * Time.deltaTime));
+			Vector3 nextPosition = myTransform.position + (myTransform.right * (moveSpeed * Time.deltaTime));
 
-			if (HelperExtras.IsInsideCameraViewport(newPosition))
+			if (HelperExtras.IsInsideCameraViewport(nextPosition))
 			{
 				rb.velocity = transform.right * moveSpeed;
+			}
+			else
+			{
+				rb.velocity = Vector2.zero;
 			}
 		}
 
 		private void RotateTowardsTarget()
 		{
-			//TODO: Lerp rotation here
 			float angle = Helper.GetAngleFromVector(transform.position.DirectionTo(target.transform.position));
+			angle = Mathf.MoveTowardsAngle(transform.eulerAngles.z, angle, rotationSpeed * Time.deltaTime);
 			transform.eulerAngles = new Vector3(0, 0, angle);
 		}
 

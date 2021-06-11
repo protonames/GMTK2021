@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using PNLib.Utility;
 using UnityEngine;
 
@@ -45,43 +43,17 @@ namespace PNTemplate
 			{
 				target = hit;
 			}
-			else
-			{
-				RotateTowardsTarget();
-			}
 		}
 
-		public void Connect(King king, List<Servant> servants)
-		{
-			gameObject.AddComponent<DistanceJoint2D>().connectedBody = king.GetComponent<Rigidbody2D>();
-
-			foreach (Servant servant in servants.Where(x => x != this))
-			{
-				gameObject.AddComponent<DistanceJoint2D>().connectedBody = servant.GetComponent<Rigidbody2D>();
-			}
-		}
-
-		public void DisconnectAll()
-		{
-			//TODO: Replace for SpringJoints
-			DistanceJoint2D[] joints = GetComponents<DistanceJoint2D>();
-
-			foreach (DistanceJoint2D joint in joints)
-			{
-				Destroy(joint);
-			}
-		}
-
-		private void RotateTowardsTarget()
+		private void RotateFirePointTowardsTarget()
 		{
 			if (!target)
 			{
 				return;
 			}
 
-			//TODO: Lerp rotation here
-			float angle = Helper.GetAngleFromVector(transform.position.DirectionTo(target.transform.position));
-			transform.eulerAngles = new Vector3(0, 0, angle);
+			float angle = Helper.GetAngleFromVector(firePoint.position.DirectionTo(target.transform.position));
+			firePoint.eulerAngles = new Vector3(0, 0, angle);
 		}
 
 		private void Fire()
@@ -91,6 +63,7 @@ namespace PNTemplate
 				return;
 			}
 
+			RotateFirePointTowardsTarget();
 			Vector3 spawnAngle = firePoint.eulerAngles;
 			Vector3 spawnPoint = firePoint.position;
 			Projectile projectile = Instantiate(servantData.ProjectilePrefab, spawnPoint, Quaternion.Euler(spawnAngle));
