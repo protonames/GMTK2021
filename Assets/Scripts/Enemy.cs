@@ -15,7 +15,7 @@ namespace PNTemplate
 		[SerializeField]
 		private float sightRadius = 18f;
 
-		private Character target;
+		private Servant target;
 		private Rigidbody2D rb;
 
 		private void Awake()
@@ -61,7 +61,7 @@ namespace PNTemplate
 
 		private void LookForTarget()
 		{
-			if (Helper.GetClosestObjectInCircleRadius(transform.position, sightRadius, out Character hit))
+			if (Helper.GetClosestObjectInCircleRadius(transform.position, sightRadius, out Servant hit))
 			{
 				target = hit;
 			}
