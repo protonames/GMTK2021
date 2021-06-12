@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 289b17ca0e6041169cb0b953d40ad562, type: 3}
   m_Name: Mage
   m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 8612600015733642732, guid: 87a25c0ac52e9ba43bc263d6dc5bf336, type: 3}
-  FireRate: 0.24
-  ProjectileSpeed: 12
+  FireRate: 1.5
   ProjectileDamage: 1
+  ProjectilePrefab: {fileID: 8612600015733642732, guid: 87a25c0ac52e9ba43bc263d6dc5bf336, type: 3}
+  ProjectileSpeed: 12
+  SightRadius: 8
