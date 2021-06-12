@@ -1169,14 +1169,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centerDistance: 0.65
   charactersInfo:
+  - {fileID: 11400000, guid: 3371a605d29a4d9469c6647bc468bb90, type: 2}
   - {fileID: 11400000, guid: 2664e6100cc5eb84aa37be5bffd3e508, type: 2}
-  - {fileID: 11400000, guid: 8a1b19068ef98524aad6714bffbe1805, type: 2}
-  - {fileID: 11400000, guid: 2664e6100cc5eb84aa37be5bffd3e508, type: 2}
-  - {fileID: 11400000, guid: 2664e6100cc5eb84aa37be5bffd3e508, type: 2}
-  - {fileID: 11400000, guid: 8a1b19068ef98524aad6714bffbe1805, type: 2}
-  - {fileID: 11400000, guid: 8a1b19068ef98524aad6714bffbe1805, type: 2}
-  - {fileID: 11400000, guid: 2664e6100cc5eb84aa37be5bffd3e508, type: 2}
-  - {fileID: 11400000, guid: 8a1b19068ef98524aad6714bffbe1805, type: 2}
+  - {fileID: 11400000, guid: 84e59d2db6615434b989f7f15c3eaec8, type: 2}
+  moveThreshold: 0.75
   kingData: {fileID: 11400000, guid: 8a1b19068ef98524aad6714bffbe1805, type: 2}
   moveSpeed: 2
   rotationSpeed: 120

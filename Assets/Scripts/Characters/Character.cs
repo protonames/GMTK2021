@@ -91,7 +91,7 @@ namespace GMTK.Characters
 			Vector3 spawnAngle = firePoint.eulerAngles;
 			Vector3 spawnPoint = firePoint.position;
 			Projectile projectile = Instantiate(data.Weapon.Projectile, spawnPoint, Quaternion.Euler(spawnAngle));
-			projectile.Launch(true, data.Weapon.Speed, data.Damage);
+			projectile.Launch(true, data.Weapon.Speed, data.Damage, data.Weapon.AreaSize);
 		}
 
 		private void Attack(Vector3 point)

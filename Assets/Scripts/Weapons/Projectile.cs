@@ -1,4 +1,5 @@
-﻿using GMTK.Characters;
+﻿using System;
+using GMTK.Characters;
 using GMTK.Enemies;
 using GMTK.Utilities;
 using UnityEngine;
@@ -8,8 +9,10 @@ namespace GMTK.Weapons
 	public class Projectile : MonoBehaviour
 	{
 		public bool PlayerProjectile = true;
-		private int damage;
+		public int Damage;
 		private Rigidbody2D rb;
+		public event Action OnDiedEvent;
+		public float AreaSize;
 
 		private void Awake()
 		{
@@ -39,7 +42,7 @@ namespace GMTK.Weapons
 
 				if (enemy)
 				{
-					health.TakeDamage(damage);
+					health.TakeDamage(Damage);
 					Die();
 				}
 			}
@@ -49,21 +52,23 @@ namespace GMTK.Weapons
 
 				if (character)
 				{
-					health.TakeDamage(damage);
+					health.TakeDamage(Damage);
 					Die();
 				}
 			}
 		}
 
-		public void Launch(bool playerProjectile, float speed, int damage)
+		public void Launch(bool playerProjectile, float speed, int damage, float areaSize = 0)
 		{
 			PlayerProjectile = playerProjectile;
-			this.damage = damage;
+			Damage = damage;
+			AreaSize = areaSize;
 			rb.velocity = transform.right * speed;
 		}
 
 		private void Die()
 		{
+			OnDiedEvent?.Invoke();
 			Destroy(gameObject);
 		}
 	}

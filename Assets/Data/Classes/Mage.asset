@@ -16,5 +16,5 @@ MonoBehaviour:
   AttackSpeed: 0.3
   Health: 5
   Damage: 5
-  Weapon: {fileID: 0}
+  Weapon: {fileID: 11400000, guid: 1ed4897028794f34e803a6d6ab77b7fe, type: 2}
   CharacterPrefab: {fileID: 4298428781574337983, guid: bd7550d2f876923489d06889103d3626, type: 3}

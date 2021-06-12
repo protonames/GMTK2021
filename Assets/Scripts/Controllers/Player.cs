@@ -15,6 +15,9 @@ namespace GMTK.Controllers
 		private List<CharacterData> charactersInfo;
 
 		[SerializeField]
+		private float moveThreshold = .75f;
+		
+		[SerializeField]
 		private CharacterData kingData;
 
 		[SerializeField]
@@ -86,8 +89,11 @@ namespace GMTK.Controllers
 		private void Move()
 		{
 			Vector3 mouseWorldPosition = Helper.GetMouseWorldPosition();
-			
 			var position = transform.position;
+
+			if (Vector2.Distance(position, mouseWorldPosition) < moveThreshold)
+				return;
+			
 			Vector3 moveDirection = position.DirectionTo(mouseWorldPosition);
 			Vector3 nextPosition = position + (moveDirection * (moveSpeed * Time.deltaTime));
 
