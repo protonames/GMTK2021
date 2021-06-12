@@ -69,7 +69,7 @@ namespace GMTK.Weapons
 			rb.velocity = transform.right * speed;
 		}
 
-		private void Die()
+		protected virtual void Die()
 		{
 			OnDiedEvent?.Invoke();
 			Destroy(gameObject);

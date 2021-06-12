@@ -467,6 +467,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: King
       objectReference: {fileID: 0}
+    - target: {fileID: 4298428781574337983, guid: 418a1bfe862e51846afb0d2e573af659, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a1b19068ef98524aad6714bffbe1805, type: 2}
     - target: {fileID: 8538607702713356101, guid: 418a1bfe862e51846afb0d2e573af659, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
@@ -490,15 +494,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f33d7ee586e224d86683f75036f55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  centerDistance: 0.65
+  centerDistance: 0.8
   charactersInfo:
-  - {fileID: 11400000, guid: 3371a605d29a4d9469c6647bc468bb90, type: 2}
-  - {fileID: 11400000, guid: 2664e6100cc5eb84aa37be5bffd3e508, type: 2}
-  - {fileID: 11400000, guid: 84e59d2db6615434b989f7f15c3eaec8, type: 2}
+  - {fileID: 11400000, guid: 7c241a189ac107d4fbbdaf29bbc4d10e, type: 2}
+  - {fileID: 11400000, guid: 7c241a189ac107d4fbbdaf29bbc4d10e, type: 2}
+  - {fileID: 11400000, guid: 7c241a189ac107d4fbbdaf29bbc4d10e, type: 2}
+  - {fileID: 11400000, guid: 7c241a189ac107d4fbbdaf29bbc4d10e, type: 2}
   moveThreshold: 0.75
-  kingData: {fileID: 11400000, guid: 8a1b19068ef98524aad6714bffbe1805, type: 2}
   moveSpeed: 2
-  rotationSpeed: 90
+  rotationSpeed: 180
 --- !u!1 &1185934751
 GameObject:
   m_ObjectHideFlags: 0

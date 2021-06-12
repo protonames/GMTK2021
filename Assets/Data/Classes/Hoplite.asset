@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54ab6758142647fca07b758d4348202b, type: 3}
-  m_Name: Banana
+  m_Name: Hoplite
   m_EditorClassIdentifier: 
   AttackRange: 2
-  AttackSpeed: 1
-  Health: 8
+  AttackSpeed: 2
+  Health: 5
   Damage: 1
-  Weapon: {fileID: 11400000, guid: 79b55996cd99d724bba547aa536ea621, type: 2}
-  CharacterPrefab: {fileID: 4298428781574337983, guid: b9a4c8343af4e7f4f9012f87a184d1f8, type: 3}
+  Weapon: {fileID: 11400000, guid: e69ee41c255b6f04eba8cb2a612c2443, type: 2}
+  CharacterPrefab: {fileID: 4298428781574337983, guid: 5d140614d2f40dd4c915c991d9056db2, type: 3}

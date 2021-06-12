@@ -1,5 +1,4 @@
 using GMTK.Characters;
-using GMTK.Controllers;
 using GMTK.Utilities;
 using PNLib.Utility;
 using UnityEngine;
@@ -70,10 +69,22 @@ namespace GMTK.Enemies
 			Transform myTransform = transform;
 			Vector3 nextPosition = myTransform.position + (myTransform.right * (moveSpeed * Time.deltaTime));
 			Vector3 moveDirection = myTransform.position.DirectionTo(nextPosition);
+			
 			Vector3 scale = character.GraphicsContainer.transform.localScale;
 			scale.x = moveDirection.x >= 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
 			character.GraphicsContainer.transform.localScale = scale;
 
+			if (character.Target)
+			{
+				var distanceToTarget = Vector2.Distance(character.Target.position, transform.position);
+
+				if (distanceToTarget < enemyData.AttackRange)
+				{
+					rb.velocity = Vector2.zero;
+					return;
+				}
+			}
+			
 			if (HelperExtras.IsInsideCameraViewport(nextPosition))
 			{
 				rb.velocity = transform.right * moveSpeed;
@@ -93,7 +104,7 @@ namespace GMTK.Enemies
 
 		private void LookForTarget()
 		{
-			if (!character.Target && HelperExtras.GetClosestObjectInCircleRadius(character.transform.position, 999, out Character hit, playerLayer))
+			if (!character.Target && HelperExtras.GetClosestObjectInCircleRadius(character.transform.position, 999, out PlayerUnit hit, playerLayer))
 			{
 				character.Target = hit.transform;
 			}

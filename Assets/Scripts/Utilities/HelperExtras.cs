@@ -110,5 +110,32 @@ namespace GMTK.Utilities
 
 			return currentList.Count > 0;
 		}
+		
+		
+		public static bool GetClosestObjectInList(Vector3 origin, List<Transform> list, out Transform current)
+		{
+			current = default(Transform);
+			float maxDistance = float.MaxValue;
+
+			for (int index = 0; index < list.Count; index++)
+			{
+				var target = list[index];
+				
+				if (Equals(target, default(Transform)))
+				{
+					continue;
+				}
+
+				float currentDistance = Vector3.Distance(origin, target.position);
+
+				if (currentDistance < maxDistance)
+				{
+					current = target;
+					maxDistance = currentDistance;
+				}
+			}
+
+			return !Equals(current, default(Transform));
+		}
 	}
 }

@@ -73,7 +73,10 @@ namespace GMTK.Characters
 			float distanceToTarget = Vector2.Distance(Target.position, transform.position);
 
 			if (distanceToTarget > data.AttackRange)
+			{
+				Target = null;
 				return;
+			}
 			
 			GraphicsContainer.BodySpriteRenderer.transform.DOScale(Vector3.one, .3f)
 				.From(Vector3.one * 1.25f)
@@ -109,7 +112,11 @@ namespace GMTK.Characters
 
 		private void Attack(Vector3 point)
 		{
-			if (HelperExtras.GetAllObjectsInCircleRadius(point, data.Weapon.AreaSize, out List<Health> hits, targetLayer))
+			if (data.Weapon.AreaSize <= 0.1f)
+			{
+				Target.GetComponent<Health>().TakeDamage(data.Damage);
+			}
+			else if (HelperExtras.GetAllObjectsInCircleRadius(point, data.Weapon.AreaSize, out List<Health> hits, targetLayer))
 			{
 				foreach (Health hit in hits)
 				{
@@ -124,6 +131,12 @@ namespace GMTK.Characters
 			ParticleSystem particles = Instantiate(deathParticles, transform.position, Quaternion.identity);
 			Destroy(particles.gameObject, particles.main.duration);
 			Destroy(gameObject);
+		}
+
+		private void OnDrawGizmosSelected()
+		{
+			if (data)
+				Gizmos.DrawWireSphere(transform.position, data.AttackRange);
 		}
 	}
 }

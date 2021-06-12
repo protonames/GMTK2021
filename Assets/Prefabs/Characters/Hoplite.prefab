@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &6928768130053015427
+--- !u!114 &-583083471765407798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,7 +26,7 @@ PrefabInstance:
     - target: {fileID: 2900081033543285487, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 9012330922213680438, guid: 499eb9231fa1ec24ca8a7be3fc2dc651, type: 3}
+      objectReference: {fileID: 9074594929040386218, guid: 499eb9231fa1ec24ca8a7be3fc2dc651, type: 3}
     - target: {fileID: 5027883605834474113, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -36,16 +36,20 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5609282008753203716, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6306601399750447729, guid: 40980dba909083d4581888f3f7dff142, type: 3}
+    - target: {fileID: 5609282008753203716, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5609282008753203716, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5609282008753203716, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5609282008753203722, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: m_Layer
@@ -98,14 +102,14 @@ PrefabInstance:
     - target: {fileID: 5609282009878761202, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: deathParticles
       value: 
-      objectReference: {fileID: 3977117035333340839, guid: b5c8944c1e7c1194588206e58b49aee2, type: 3}
+      objectReference: {fileID: 3977117035333340839, guid: af5a1851d2a10254896e17aacba54fd0, type: 3}
     - target: {fileID: 5609282009878761202, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: targetLayer.m_Bits
       value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 5609282009878761203, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: m_Name
-      value: King
+      value: Hoplite
       objectReference: {fileID: 0}
     - target: {fileID: 5609282009878761203, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: m_Layer

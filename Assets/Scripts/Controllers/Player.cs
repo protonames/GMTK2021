@@ -19,9 +19,6 @@ namespace GMTK.Controllers
 		private float moveThreshold = .75f;
 		
 		[SerializeField]
-		private CharacterData kingData;
-
-		[SerializeField]
 		private float moveSpeed = 6f;
 
 		[SerializeField]
@@ -37,7 +34,7 @@ namespace GMTK.Controllers
 
 		private void Start()
 		{
-			main.SetData(kingData);
+			main.SetData(main.data);
 			float angleStep = 360f / charactersInfo.Count;
 
 			for (int i = 0; i < charactersInfo.Count; i++)
