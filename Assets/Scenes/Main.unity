@@ -135,7 +135,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -165,7 +165,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -195,7 +195,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -225,7 +225,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -364,7 +364,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -394,7 +394,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -533,7 +533,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -563,7 +563,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -659,7 +659,7 @@ Transform:
   m_GameObject: {fileID: 1678989710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.44233, y: 0.44233, z: 0.44233}
   m_Children:
   - {fileID: 741361217}
   - {fileID: 1185934752}
@@ -968,7 +968,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1011,7 +1011,7 @@ Transform:
   m_GameObject: {fileID: 2066506979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.38035, y: 0.38035, z: 0.38035}
   m_Children:
   - {fileID: 1109302241}
   - {fileID: 1266068244}
@@ -1154,6 +1154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 7340005331490408183}
+  GraphicsContainer: {fileID: 2883644827427510522}
 --- !u!114 &2883644828520610830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,17 +1169,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centerDistance: 0.65
   charactersInfo:
+  - {fileID: 11400000, guid: 2664e6100cc5eb84aa37be5bffd3e508, type: 2}
+  - {fileID: 11400000, guid: 8a1b19068ef98524aad6714bffbe1805, type: 2}
+  - {fileID: 11400000, guid: 2664e6100cc5eb84aa37be5bffd3e508, type: 2}
+  - {fileID: 11400000, guid: 2664e6100cc5eb84aa37be5bffd3e508, type: 2}
   - {fileID: 11400000, guid: 8a1b19068ef98524aad6714bffbe1805, type: 2}
   - {fileID: 11400000, guid: 8a1b19068ef98524aad6714bffbe1805, type: 2}
+  - {fileID: 11400000, guid: 2664e6100cc5eb84aa37be5bffd3e508, type: 2}
   - {fileID: 11400000, guid: 8a1b19068ef98524aad6714bffbe1805, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 8a1b19068ef98524aad6714bffbe1805, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   kingData: {fileID: 11400000, guid: 8a1b19068ef98524aad6714bffbe1805, type: 2}
-  moveSpeed: 1.5
-  rotationSpeed: 180
+  moveSpeed: 2
+  rotationSpeed: 120
 --- !u!58 &2883644828520610832
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1253,7 +1254,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7340005331490408184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2883644828520610833}

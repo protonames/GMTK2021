@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 6490162368429953238}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 6490162369779943323}
   m_RootOrder: 0
@@ -91,9 +91,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6490162369779943323}
-  - component: {fileID: 6490162369779943320}
   - component: {fileID: 1839332949}
   - component: {fileID: 1839332950}
+  - component: {fileID: 6490162369779943320}
   - component: {fileID: 2391931726663848736}
   m_Layer: 0
   m_Name: Enemy
@@ -117,21 +117,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6490162369779943320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6490162369779943322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4efee0be91481414b9dfdeb218b88489, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 4
-  rotationSpeed: 180
-  sightRadius: 18
 --- !u!70 &1839332949
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -146,7 +131,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 0.5, y: 0.25}
   m_Direction: 1
 --- !u!50 &1839332950
 Rigidbody2D:
@@ -169,6 +154,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6490162369779943320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6490162369779943322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4efee0be91481414b9dfdeb218b88489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  rotationSpeed: 90
+  sightRadius: 999
 --- !u!114 &2391931726663848736
 MonoBehaviour:
   m_ObjectHideFlags: 0

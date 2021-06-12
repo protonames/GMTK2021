@@ -85,8 +85,11 @@ namespace GMTK.Controllers
 
 		private void Move()
 		{
-			Transform myTransform = transform;
-			Vector3 nextPosition = myTransform.position + (myTransform.right * (moveSpeed * Time.deltaTime));
+			Vector3 mouseWorldPosition = Helper.GetMouseWorldPosition();
+			
+			var position = transform.position;
+			Vector3 moveDirection = position.DirectionTo(mouseWorldPosition);
+			Vector3 nextPosition = position + (moveDirection * (moveSpeed * Time.deltaTime));
 
 			if (HelperExtras.IsInsideCameraViewport(nextPosition))
 			{
@@ -97,9 +100,22 @@ namespace GMTK.Controllers
 		private void AdjustUnitsPosition()
 		{
 			Vector3 mouseWorldPosition = Helper.GetMouseWorldPosition();
-			float angle = Helper.GetAngleFromVector(transform.position.DirectionTo(mouseWorldPosition));
+			Vector3 moveDirection = transform.position.DirectionTo(mouseWorldPosition);
+			float angle = Helper.GetAngleFromVector(moveDirection);
 			angle = Mathf.MoveTowardsAngle(transform.eulerAngles.z, angle, rotationSpeed * Time.deltaTime);
 			transform.eulerAngles = new Vector3(0, 0, angle);
+
+			
+			Vector3 scale = main.GraphicsContainer.localScale;
+			scale.x = moveDirection.x >= 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
+			main.GraphicsContainer.localScale = scale;
+			
+			foreach (Character character in activeCharacters)
+			{
+				scale = character.GraphicsContainer.localScale;
+				scale.x = moveDirection.x >= 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
+				character.GraphicsContainer.localScale = scale;
+			}
 		}
 	}
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57164f9cae5e4348949155f88676533d, type: 3}
+  m_Name: Bow
+  m_EditorClassIdentifier: 
+  AttackType: 0
+  AreaSize: 0
+  Amount: 1
+  Projectiles:
+  - {fileID: 300994145775445142, guid: d04cb8e1847b1674ebb7d5c7f1bb119d, type: 3}
+  Speed: 3
+  Pattern: 0
+  LinearSpread: 0
+  AngleSpread: 0

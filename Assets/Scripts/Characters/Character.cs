@@ -18,6 +18,8 @@ namespace GMTK.Characters
 		private Health health;
 		private Enemy target;
 
+		public Transform GraphicsContainer;
+
 		private void Awake()
 		{
 			health = GetComponent<Health>();
