@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using GMTK.Enemies;
 using GMTK.Weapons;
 using PNLib.Utility;
@@ -13,12 +14,15 @@ namespace GMTK.Characters
 		[SerializeField]
 		private Transform firePoint;
 
+		[SerializeField]
+		private Muzzle muzzlePrefab;
+		
 		public event Action OnDiedEvent;
-		private CharacterData data;
+		public CharacterData data;
 		private Health health;
-		private Enemy target;
+		public Transform Target;
 
-		public Transform GraphicsContainer;
+		public GraphicsContainer GraphicsContainer;
 
 		private void Awake()
 		{
@@ -39,16 +43,7 @@ namespace GMTK.Characters
 		{
 			health.OnDiedEvent -= Die;
 		}
-
-		private void Update()
-		{
-			if (!target
-				&& Helper.GetClosestObjectInCircleRadius(transform.position, data.AttackRange, out Enemy hit))
-			{
-				target = hit;
-			}
-		}
-
+		
 		public void SetData(CharacterData characterData)
 		{
 			data = characterData;
@@ -57,22 +52,31 @@ namespace GMTK.Characters
 
 		private void RotateFirePointTowardsTarget()
 		{
-			if (!target)
+			if (!Target)
 			{
 				return;
 			}
 
-			float angle = Helper.GetAngleFromVector(firePoint.position.DirectionTo(target.transform.position));
+			float angle = Helper.GetAngleFromVector(firePoint.position.DirectionTo(Target.transform.position));
 			firePoint.eulerAngles = new Vector3(0, 0, angle);
 		}
 
 		private void TriggerAttack()
 		{
-			if (!target)
+			if (!Target)
 			{
 				return;
 			}
 
+			GraphicsContainer.BodySpriteRenderer.transform.DOScale(Vector3.one, .3f)
+				.From(Vector3.one * 1.25f)
+				.SetEase(Ease.OutBounce);
+			
+			GraphicsContainer.WeaponSpriteRenderer.transform.DOScale(Vector3.one, .3f)
+				.From(Vector3.one * 1.25f)
+				.SetEase(Ease.OutBounce);
+
+			Instantiate(muzzlePrefab, firePoint.position, Quaternion.identity);
 			RotateFirePointTowardsTarget();
 
 			switch (data.Weapon.AttackType)
@@ -81,7 +85,7 @@ namespace GMTK.Characters
 					Fire();
 					break;
 				case AttackType.Instantaneous:
-					Attack(target.transform.position);
+					Attack(Target.transform.position);
 					break;
 			}
 		}

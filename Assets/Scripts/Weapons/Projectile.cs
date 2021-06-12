@@ -8,6 +8,9 @@ namespace GMTK.Weapons
 {
 	public class Projectile : MonoBehaviour
 	{
+		[SerializeField]
+		private GameObject destroyParticles;
+		
 		public bool PlayerProjectile = true;
 		public int Damage;
 		private Rigidbody2D rb;

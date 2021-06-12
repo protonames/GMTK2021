@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using GMTK.Characters;
+using GMTK.Enemies;
 using GMTK.Utilities;
 using PNLib.Utility;
 using UnityEngine;
@@ -78,7 +79,26 @@ namespace GMTK.Controllers
 		private void Update()
 		{
 			AdjustUnitsPosition();
+			GetUnitTargets();
 			Move();
+		}
+
+		private void GetUnitTargets()
+		{
+			for (int i = 0; i < activeCharacters.Count; i++)
+			{
+				Character character = activeCharacters[i];
+
+				if (!character.Target
+					&& Helper.GetClosestObjectInCircleRadius(
+						character.transform.position,
+						character.data.AttackRange,
+						out Enemy hit
+					))
+				{
+					character.Target = hit.transform;
+				}
+			}
 		}
 
 		private void Die()
@@ -110,17 +130,16 @@ namespace GMTK.Controllers
 			float angle = Helper.GetAngleFromVector(moveDirection);
 			angle = Mathf.MoveTowardsAngle(transform.eulerAngles.z, angle, rotationSpeed * Time.deltaTime);
 			transform.eulerAngles = new Vector3(0, 0, angle);
-
 			
-			Vector3 scale = main.GraphicsContainer.localScale;
+			Vector3 scale = main.GraphicsContainer.transform.localScale;
 			scale.x = moveDirection.x >= 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
-			main.GraphicsContainer.localScale = scale;
+			main.GraphicsContainer.transform.localScale = scale;
 			
 			foreach (Character character in activeCharacters)
 			{
-				scale = character.GraphicsContainer.localScale;
+				scale = character.GraphicsContainer.transform.localScale;
 				scale.x = moveDirection.x >= 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
-				character.GraphicsContainer.localScale = scale;
+				character.GraphicsContainer.transform.localScale = scale;
 			}
 		}
 	}

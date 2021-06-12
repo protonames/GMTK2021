@@ -1,4 +1,5 @@
 using GMTK.Characters;
+using GMTK.Controllers;
 using GMTK.Utilities;
 using PNLib.Utility;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace GMTK.Enemies
 	public class Enemy : MonoBehaviour
 	{
 		[SerializeField]
-		private Transform graphicsContainer;
+		private CharacterData enemyData;
 
 		[SerializeField]
 		private float moveSpeed = 4f;
@@ -16,21 +17,20 @@ namespace GMTK.Enemies
 		[SerializeField]
 		private float rotationSpeed = 180f;
 
-		[SerializeField]
-		private float sightRadius = 18f;
-
+		private Character character;
 		private Health health;
 		private Rigidbody2D rb;
-		private Character target;
 
 		private void Awake()
 		{
 			rb = GetComponent<Rigidbody2D>();
 			health = GetComponent<Health>();
+			character = GetComponent<Character>();
 		}
 
 		private void Start()
 		{
+			character.SetData(enemyData);
 			LookForTarget();
 		}
 
@@ -46,7 +46,7 @@ namespace GMTK.Enemies
 
 		private void Update()
 		{
-			if (!target)
+			if (!character.Target)
 			{
 				LookForTarget();
 			}
@@ -67,9 +67,9 @@ namespace GMTK.Enemies
 			Transform myTransform = transform;
 			Vector3 nextPosition = myTransform.position + (myTransform.right * (moveSpeed * Time.deltaTime));
 			Vector3 moveDirection = myTransform.position.DirectionTo(nextPosition);
-			Vector3 scale = graphicsContainer.localScale;
+			Vector3 scale = character.GraphicsContainer.transform.localScale;
 			scale.x = moveDirection.x >= 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
-			graphicsContainer.localScale = scale;
+			character.GraphicsContainer.transform.localScale = scale;
 
 			if (HelperExtras.IsInsideCameraViewport(nextPosition))
 			{
@@ -83,17 +83,14 @@ namespace GMTK.Enemies
 
 		private void RotateTowardsTarget()
 		{
-			float angle = Helper.GetAngleFromVector(transform.position.DirectionTo(target.transform.position));
+			float angle = Helper.GetAngleFromVector(transform.position.DirectionTo(character.Target.position));
 			angle = Mathf.MoveTowardsAngle(transform.eulerAngles.z, angle, rotationSpeed * Time.deltaTime);
 			transform.eulerAngles = new Vector3(0, 0, angle);
 		}
 
 		private void LookForTarget()
 		{
-			if (Helper.GetClosestObjectInCircleRadius(transform.position, sightRadius, out Character hit))
-			{
-				target = hit;
-			}
+			character.Target = FindObjectOfType<Player>()?.transform;
 		}
 	}
 }
