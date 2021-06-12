@@ -17,4 +17,4 @@ MonoBehaviour:
   Health: 20
   Damage: 1
   Weapon: {fileID: 11400000, guid: 79b55996cd99d724bba547aa536ea621, type: 2}
-  CharacterPrefab: {fileID: 5609282009878761202, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
+  CharacterPrefab: {fileID: 4298428781574337983, guid: 418a1bfe862e51846afb0d2e573af659, type: 3}
