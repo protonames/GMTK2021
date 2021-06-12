@@ -8,6 +8,9 @@ namespace GMTK.Enemies
 	public class Enemy : MonoBehaviour
 	{
 		[SerializeField]
+		private Transform graphicsContainer;
+
+		[SerializeField]
 		private float moveSpeed = 4f;
 
 		[SerializeField]
@@ -63,6 +66,10 @@ namespace GMTK.Enemies
 		{
 			Transform myTransform = transform;
 			Vector3 nextPosition = myTransform.position + (myTransform.right * (moveSpeed * Time.deltaTime));
+			Vector3 moveDirection = myTransform.position.DirectionTo(nextPosition);
+			Vector3 scale = graphicsContainer.localScale;
+			scale.x = moveDirection.x >= 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
+			graphicsContainer.localScale = scale;
 
 			if (HelperExtras.IsInsideCameraViewport(nextPosition))
 			{
