@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: 40980dba909083d4581888f3f7dff142
+guid: ccd07d8e3cff92e489f447303e82597e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7297011750097709627
-    second: spr_characters_strip4_0
+      213: 8513823067179316229
+    second: spe_projectiles_strip3_0
   - first:
-      213: 7149151269417110777
-    second: spr_characters_strip4_1
+      213: 8154011381309652413
+    second: spe_projectiles_strip3_1
   - first:
-      213: 6306601399750447729
-    second: spr_characters_strip4_2
-  - first:
-      213: -596844136284172728
-    second: spr_characters_strip4_3
+      213: -3484315175450788047
+    second: spe_projectiles_strip3_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -99,29 +96,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_characters_strip4_0
+      name: spe_projectiles_strip3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,20 +114,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3aec668681344560800000000000000
-      internalID: 7297011750097709627
+      spriteID: 504ffbfa8fc272670800000000000000
+      internalID: 8513823067179316229
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_characters_strip4_1
+      name: spe_projectiles_strip3_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbd3475462ed82170800000000000000
+      internalID: 8154011381309652413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spe_projectiles_strip3_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,50 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fcc323a333e63360800000000000000
-      internalID: 7149151269417110777
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_characters_strip4_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1725b1c2f8c858750800000000000000
-      internalID: 6306601399750447729
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_characters_strip4_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 84ec1869b6597b7f0800000000000000
-      internalID: -596844136284172728
+      spriteID: 13fb0c10fc935afc0800000000000000
+      internalID: -3484315175450788047
       vertices: []
       indices: 
       edges: []

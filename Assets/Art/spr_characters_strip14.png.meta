@@ -1,43 +1,49 @@
 fileFormatVersion: 2
-guid: 499eb9231fa1ec24ca8a7be3fc2dc651
+guid: 0eaad3cf2b9be6746bb63448036956a6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9012330922213680438
-    second: spr_weapons_strip12_0
+      213: -6434815177628243973
+    second: spr_characters_strip14_0
   - first:
-      213: -4836471844891013990
-    second: spr_weapons_strip12_1
+      213: 3024468882755748236
+    second: spr_characters_strip14_1
   - first:
-      213: 6084803567931218450
-    second: spr_weapons_strip12_2
+      213: -7895392832437944078
+    second: spr_characters_strip14_2
   - first:
-      213: 4727514565615442856
-    second: spr_weapons_strip12_3
+      213: 4256534065391266894
+    second: spr_characters_strip14_3
   - first:
-      213: 2321752531864327130
-    second: spr_weapons_strip12_4
+      213: -2690681940826554475
+    second: spr_characters_strip14_4
   - first:
-      213: 9074594929040386218
-    second: spr_weapons_strip12_5
+      213: 2963619872475089901
+    second: spr_characters_strip14_5
   - first:
-      213: -4807093325735434513
-    second: spr_weapons_strip12_6
+      213: -3681199634095234045
+    second: spr_characters_strip14_6
   - first:
-      213: -1050782171830134018
-    second: spr_weapons_strip12_7
+      213: 4071960801664167416
+    second: spr_characters_strip14_7
   - first:
-      213: -3707111950773629323
-    second: spr_weapons_strip12_8
+      213: 4112077241842827410
+    second: spr_characters_strip14_8
   - first:
-      213: 5751506791126650767
-    second: spr_weapons_strip12_9
+      213: 9166191916666370638
+    second: spr_characters_strip14_9
   - first:
-      213: -7372482456101719647
-    second: spr_weapons_strip12_10
+      213: -5827180073338481689
+    second: spr_characters_strip14_10
   - first:
-      213: -2320208534029871465
-    second: spr_weapons_strip12_11
+      213: 4948908515826042256
+    second: spr_characters_strip14_11
+  - first:
+      213: 8436139879129301889
+    second: spr_characters_strip14_12
+  - first:
+      213: 4271014860589193956
+    second: spr_characters_strip14_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -123,23 +129,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_weapons_strip12_0
+      name: spr_characters_strip14_0
       rect:
         serializedVersion: 2
         x: 0
@@ -153,14 +147,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 635a0d0793b321d70800000000000000
-      internalID: 9012330922213680438
+      spriteID: bf72d2660b1f2b6a0800000000000000
+      internalID: -6434815177628243973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_weapons_strip12_1
+      name: spr_characters_strip14_1
       rect:
         serializedVersion: 2
         x: 32
@@ -174,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9cc7175b7661ecb0800000000000000
-      internalID: -4836471844891013990
+      spriteID: c8101eeac6219f920800000000000000
+      internalID: 3024468882755748236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_weapons_strip12_2
+      name: spr_characters_strip14_2
       rect:
         serializedVersion: 2
         x: 64
@@ -195,14 +189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21ad19a3b90917450800000000000000
-      internalID: 6084803567931218450
+      spriteID: 2f00f5cec0eed6290800000000000000
+      internalID: -7895392832437944078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_weapons_strip12_3
+      name: spr_characters_strip14_3
       rect:
         serializedVersion: 2
         x: 96
@@ -216,14 +210,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ab5ef133718b9140800000000000000
-      internalID: 4727514565615442856
+      spriteID: e4ceefd2e2f321b30800000000000000
+      internalID: 4256534065391266894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_weapons_strip12_4
+      name: spr_characters_strip14_4
       rect:
         serializedVersion: 2
         x: 128
@@ -237,14 +231,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad3132660a5883020800000000000000
-      internalID: 2321752531864327130
+      spriteID: 59f7979d707c8aad0800000000000000
+      internalID: -2690681940826554475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_weapons_strip12_5
+      name: spr_characters_strip14_5
       rect:
         serializedVersion: 2
         x: 160
@@ -258,14 +252,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa8630a32007fed70800000000000000
-      internalID: 9074594929040386218
+      spriteID: deb8a247294e02920800000000000000
+      internalID: 2963619872475089901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_weapons_strip12_6
+      name: spr_characters_strip14_6
       rect:
         serializedVersion: 2
         x: 192
@@ -279,14 +273,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe6636dd616c94db0800000000000000
-      internalID: -4807093325735434513
+      spriteID: 304a476cf60c9ecc0800000000000000
+      internalID: -3681199634095234045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_weapons_strip12_7
+      name: spr_characters_strip14_7
       rect:
         serializedVersion: 2
         x: 224
@@ -300,14 +294,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efa50c79e2fda61f0800000000000000
-      internalID: -1050782171830134018
+      spriteID: 8fde18266c2828830800000000000000
+      internalID: 4071960801664167416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_weapons_strip12_8
+      name: spr_characters_strip14_8
       rect:
         serializedVersion: 2
         x: 256
@@ -321,14 +315,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57e48876251bd8cc0800000000000000
-      internalID: -3707111950773629323
+      spriteID: 2908209f678011930800000000000000
+      internalID: 4112077241842827410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_weapons_strip12_9
+      name: spr_characters_strip14_9
       rect:
         serializedVersion: 2
         x: 288
@@ -342,14 +336,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8fc95824f471df40800000000000000
-      internalID: 5751506791126650767
+      spriteID: e4ab4ffcbfad43f70800000000000000
+      internalID: 9166191916666370638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_weapons_strip12_10
+      name: spr_characters_strip14_10
       rect:
         serializedVersion: 2
         x: 320
@@ -363,14 +357,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a1f14b644eafa990800000000000000
-      internalID: -7372482456101719647
+      spriteID: 7e3dc66d892b12fa0800000000000000
+      internalID: -5827180073338481689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_weapons_strip12_11
+      name: spr_characters_strip14_11
       rect:
         serializedVersion: 2
         x: 352
@@ -384,8 +378,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 796d15c91a6fccfd0800000000000000
-      internalID: -2320208534029871465
+      spriteID: 09587bf131e0ea440800000000000000
+      internalID: 4948908515826042256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_characters_strip14_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18342030680331570800000000000000
+      internalID: 8436139879129301889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_characters_strip14_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea55db0361b54b30800000000000000
+      internalID: 4271014860589193956
       vertices: []
       indices: 
       edges: []
