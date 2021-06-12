@@ -50,13 +50,4 @@ namespace PNTemplate
 			Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity, null);
 		}
 	}
-
-	// public class Wave {
-	// 	WaveGroup[] groups;
-	// }
-
-	// public class WaveGroup {
-	// 	GameObject enemyType;
-	// 	int enemyAmount;
-	// }
 }
