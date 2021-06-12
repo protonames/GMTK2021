@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace PNTemplate
+namespace GMTK.Enemies
 {
 	public class EnemySpawner : MonoBehaviour
 	{

@@ -5,7 +5,7 @@ using PNLib.Time;
 using PNLib.Utility;
 using UnityEngine;
 
-namespace PNTemplate
+namespace GMTK.Utilities
 {
 	public static class HelperExtras
 	{

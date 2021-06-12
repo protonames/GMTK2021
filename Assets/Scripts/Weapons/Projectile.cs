@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿using GMTK.Characters;
+using GMTK.Enemies;
+using GMTK.Utilities;
+using UnityEngine;
 
-namespace PNTemplate
+namespace GMTK.Weapons
 {
 	public class Projectile : MonoBehaviour
 	{
@@ -42,9 +45,9 @@ namespace PNTemplate
 			}
 			else
 			{
-				Servant servant = other.GetComponent<Servant>();
+				Character character = other.GetComponent<Character>();
 
-				if (servant)
+				if (character)
 				{
 					health.TakeDamage(damage);
 					Die();

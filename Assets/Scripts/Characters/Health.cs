@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace PNTemplate
+namespace GMTK.Characters
 {
 	public class Health : MonoBehaviour
 	{
@@ -42,6 +42,12 @@ namespace PNTemplate
 			}
 
 			OnChangedEvent?.Invoke();
+		}
+
+		public void SetHealth(int value)
+		{
+			max = value;
+			current = value;
 		}
 	}
 }

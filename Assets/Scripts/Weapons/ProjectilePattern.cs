@@ -1,6 +1,6 @@
-﻿namespace PNTemplate._Temp
+﻿namespace GMTK.Weapons
 {
-	public enum FireType
+	public enum ProjectilePattern
 	{
 		Straight,
 		Angle,

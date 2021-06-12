@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PNTemplate
+namespace GMTK.Utilities
 {
 	public class DestroyAfterSeconds : MonoBehaviour
 	{

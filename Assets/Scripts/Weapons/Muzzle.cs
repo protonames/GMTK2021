@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace PNTemplate._Temp
+namespace GMTK.Weapons
 {
 	public class Muzzle : MonoBehaviour
 	{

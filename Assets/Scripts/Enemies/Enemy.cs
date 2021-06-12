@@ -1,7 +1,9 @@
+using GMTK.Characters;
+using GMTK.Utilities;
 using PNLib.Utility;
 using UnityEngine;
 
-namespace PNTemplate
+namespace GMTK.Enemies
 {
 	public class Enemy : MonoBehaviour
 	{
@@ -16,7 +18,7 @@ namespace PNTemplate
 
 		private Health health;
 		private Rigidbody2D rb;
-		private Servant target;
+		private Character target;
 
 		private void Awake()
 		{
@@ -81,7 +83,7 @@ namespace PNTemplate
 
 		private void LookForTarget()
 		{
-			if (Helper.GetClosestObjectInCircleRadius(transform.position, sightRadius, out Servant hit))
+			if (Helper.GetClosestObjectInCircleRadius(transform.position, sightRadius, out Character hit))
 			{
 				target = hit;
 			}

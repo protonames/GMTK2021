@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 5609282009878761197}
   - component: {fileID: 5609282009878761202}
   m_Layer: 0
-  m_Name: Servant
+  m_Name: Base Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,7 +173,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5609282009878761203}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -212,7 +212,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1970893832}
-  servantData: {fileID: 11400000, guid: b702cbfe637cf484dbf5e55e6db49fb4, type: 2}
 --- !u!1 &7100453839366912385
 GameObject:
   m_ObjectHideFlags: 0
