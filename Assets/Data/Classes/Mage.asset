@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Mage
   m_EditorClassIdentifier: 
   AttackRange: 5
-  AttackSpeed: 0.8
+  AttackSpeed: 1
   Health: 3
-  Damage: 2
+  Damage: 1
   Weapon: {fileID: 11400000, guid: 1ed4897028794f34e803a6d6ab77b7fe, type: 2}
   CharacterPrefab: {fileID: 4298428781574337983, guid: bd7550d2f876923489d06889103d3626, type: 3}

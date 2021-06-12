@@ -28,6 +28,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98d6bc8a02049b281bbaf8da042cd2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  muzzlePrefab: {fileID: 5328512901462118439, guid: 039abfb95f8342c2a3c059c39ad1fd56, type: 3}
 --- !u!1001 &8334828659348681082
 PrefabInstance:
   m_ObjectHideFlags: 0

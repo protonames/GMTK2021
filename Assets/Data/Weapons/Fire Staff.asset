@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fire Staff
   m_EditorClassIdentifier: 
   AttackType: 0
-  AreaSize: 0
+  AreaSize: 2
   Amount: 1
   Projectiles:
   - {fileID: 300994145775445142, guid: 424599eb9b4de8b439bcaffc32d7305c, type: 3}

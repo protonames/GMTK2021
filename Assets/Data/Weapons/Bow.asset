@@ -17,7 +17,7 @@ MonoBehaviour:
   Amount: 1
   Projectiles:
   - {fileID: 300994145775445142, guid: d04cb8e1847b1674ebb7d5c7f1bb119d, type: 3}
-  Speed: 6
+  Speed: 8
   Pattern: 0
   LinearSpread: 0
   AngleSpread: 0

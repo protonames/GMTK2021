@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Banana
   m_EditorClassIdentifier: 
   AttackRange: 1
-  AttackSpeed: 3
-  Health: 6
+  AttackSpeed: 1
+  Health: 5
   Damage: 1
   Weapon: {fileID: 11400000, guid: 79b55996cd99d724bba547aa536ea621, type: 2}
-  CharacterPrefab: {fileID: 4298428781574337983, guid: 794d202452b4ed54c9e1babae796e208, type: 3}
+  CharacterPrefab: {fileID: 4298428781574337983, guid: b9a4c8343af4e7f4f9012f87a184d1f8, type: 3}

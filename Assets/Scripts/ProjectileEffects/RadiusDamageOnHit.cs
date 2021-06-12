@@ -10,6 +10,8 @@ namespace GMTK.ProjectileEffects
 {
 	public class RadiusDamageOnHit : MonoBehaviour
 	{
+		[SerializeField]
+		private Muzzle muzzlePrefab;
 		private void OnEnable()
 		{
 			var projectile = GetComponent<Projectile>();
@@ -18,6 +20,9 @@ namespace GMTK.ProjectileEffects
 
 		private void TriggerAoE(int damage, float radius)
 		{
+			var muzzle = Instantiate(muzzlePrefab, transform.position, Quaternion.identity);
+			muzzle.transform.localScale = Vector3.one * radius * 2f;
+			
 			if (Helper.GetAllObjectsInCircleRadius(transform.position, radius, out List<Enemy> enemiesHit))
 			{
 				foreach (Enemy enemy in enemiesHit)

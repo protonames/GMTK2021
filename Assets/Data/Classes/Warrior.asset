@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Warrior
   m_EditorClassIdentifier: 
   AttackRange: 2
-  AttackSpeed: 0.6
+  AttackSpeed: 1
   Health: 10
   Damage: 3
   Weapon: {fileID: 11400000, guid: 5fbe4158651eccd4fb21cf60ac117a42, type: 2}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: King
   m_EditorClassIdentifier: 
   AttackRange: 2
-  AttackSpeed: 0.3
+  AttackSpeed: 0.5
   Health: 20
   Damage: 1
   Weapon: {fileID: 11400000, guid: 79b55996cd99d724bba547aa536ea621, type: 2}

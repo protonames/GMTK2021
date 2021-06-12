@@ -20,6 +20,8 @@ namespace GMTK.Enemies
 		private Character character;
 		private Health health;
 		private Rigidbody2D rb;
+		[SerializeField]
+		private LayerMask playerLayer;
 
 		private void Awake()
 		{
@@ -30,6 +32,7 @@ namespace GMTK.Enemies
 
 		private void Start()
 		{
+			
 			character.SetData(enemyData);
 			LookForTarget();
 		}
@@ -90,7 +93,10 @@ namespace GMTK.Enemies
 
 		private void LookForTarget()
 		{
-			character.Target = FindObjectOfType<Player>()?.transform;
+			if (!character.Target && HelperExtras.GetClosestObjectInCircleRadius(character.transform.position, 999, out Character hit, playerLayer))
+			{
+				character.Target = hit.transform;
+			}
 		}
 	}
 }

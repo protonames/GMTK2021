@@ -26,7 +26,7 @@ namespace GMTK.Weapons
 		{
 			if (!HelperExtras.IsInsideCameraViewport(transform.position))
 			{
-				Destroy(gameObject);
+				Die();
 			}
 		}
 

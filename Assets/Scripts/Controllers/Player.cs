@@ -29,11 +29,9 @@ namespace GMTK.Controllers
 
 		private List<Character> activeCharacters;
 		private Character main;
-		private Rigidbody2D rb;
 
 		private void Awake()
 		{
-			rb = GetComponent<Rigidbody2D>();
 			main = GetComponent<Character>();
 		}
 
@@ -137,6 +135,11 @@ namespace GMTK.Controllers
 			
 			foreach (Character character in activeCharacters)
 			{
+				if (character.Target)
+					moveDirection = character.transform.position.DirectionTo(character.Target.position);
+				else
+					moveDirection = transform.position.DirectionTo(mouseWorldPosition);
+				
 				scale = character.GraphicsContainer.transform.localScale;
 				scale.x = moveDirection.x >= 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
 				character.GraphicsContainer.transform.localScale = scale;

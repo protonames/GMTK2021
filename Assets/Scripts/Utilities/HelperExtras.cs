@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Cinemachine;
 using DG.Tweening;
 using PNLib.Time;
@@ -59,6 +60,55 @@ namespace GMTK.Utilities
 			float x = Mathf.Cos(radians);
 			float y = Mathf.Sin(radians);
 			return new Vector2(x, y);
+		}
+		
+		public static bool GetClosestObjectInCircleRadius<T>(Vector3 origin, float radius, out T current, LayerMask layerMask)
+		{
+			Collider2D[] targets = Physics2D.OverlapCircleAll(origin, radius, layerMask);
+			current = default(T);
+			float maxDistance = float.MaxValue;
+
+			for (int index = 0; index < targets.Length; index++)
+			{
+				Collider2D hitTarget = targets[index];
+				T target = hitTarget.GetComponent<T>();
+
+				if (Equals(target, default(T)))
+				{
+					continue;
+				}
+
+				float currentDistance = Vector3.Distance(origin, hitTarget.transform.position);
+
+				if (currentDistance < maxDistance)
+				{
+					current = target;
+					maxDistance = currentDistance;
+				}
+			}
+
+			return !Equals(current, default(T));
+		}
+		
+		public static bool GetAllObjectsInCircleRadius<T>(Vector3 origin, float radius, out List<T> currentList, LayerMask layerMask)
+		{
+			Collider2D[] targets = Physics2D.OverlapCircleAll(origin, radius, layerMask);
+			currentList = new List<T>();
+
+			for (int index = 0; index < targets.Length; index++)
+			{
+				Collider2D hitTarget = targets[index];
+				T target = hitTarget.GetComponent<T>();
+
+				if (Equals(target, default(T)))
+				{
+					continue;
+				}
+
+				currentList.Add(target);
+			}
+
+			return currentList.Count > 0;
 		}
 	}
 }

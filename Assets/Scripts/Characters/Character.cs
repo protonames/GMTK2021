@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using GMTK.Enemies;
+using GMTK.Utilities;
 using GMTK.Weapons;
 using PNLib.Utility;
 using UnityEngine;
@@ -12,26 +13,25 @@ namespace GMTK.Characters
 	public class Character : MonoBehaviour
 	{
 		[SerializeField]
+		private ParticleSystem deathParticles;
+
+		[SerializeField]
 		private Transform firePoint;
 
 		[SerializeField]
 		private Muzzle muzzlePrefab;
-		
+
 		public event Action OnDiedEvent;
 		public CharacterData data;
-		private Health health;
-		public Transform Target;
-
 		public GraphicsContainer GraphicsContainer;
+		public Transform Target;
+		private Health health;
+		[SerializeField]
+		private LayerMask targetLayer;
 
 		private void Awake()
 		{
 			health = GetComponent<Health>();
-		}
-
-		private void Start()
-		{
-			InvokeRepeating(nameof(TriggerAttack), data.AttackSpeed, data.AttackSpeed);
 		}
 
 		private void OnEnable()
@@ -43,11 +43,13 @@ namespace GMTK.Characters
 		{
 			health.OnDiedEvent -= Die;
 		}
-		
+
 		public void SetData(CharacterData characterData)
 		{
 			data = characterData;
 			health.SetHealth(data.Health);
+			CancelInvoke(nameof(TriggerAttack));
+			InvokeRepeating(nameof(TriggerAttack), 1f/data.AttackSpeed, 1f/data.AttackSpeed);
 		}
 
 		private void RotateFirePointTowardsTarget()
@@ -68,15 +70,22 @@ namespace GMTK.Characters
 				return;
 			}
 
+			float distanceToTarget = Vector2.Distance(Target.position, transform.position);
+
+			if (distanceToTarget > data.AttackRange)
+				return;
+			
 			GraphicsContainer.BodySpriteRenderer.transform.DOScale(Vector3.one, .3f)
 				.From(Vector3.one * 1.25f)
 				.SetEase(Ease.OutBounce);
-			
-			GraphicsContainer.WeaponSpriteRenderer.transform.DOScale(Vector3.one, .3f)
+
+			Transform weaponTransform;
+
+			(weaponTransform = GraphicsContainer.WeaponSpriteRenderer.transform).DOScale(Vector3.one, .3f)
 				.From(Vector3.one * 1.25f)
 				.SetEase(Ease.OutBounce);
 
-			Instantiate(muzzlePrefab, firePoint.position, Quaternion.identity);
+			Instantiate(muzzlePrefab, weaponTransform.position, Quaternion.identity);
 			RotateFirePointTowardsTarget();
 
 			switch (data.Weapon.AttackType)
@@ -100,11 +109,11 @@ namespace GMTK.Characters
 
 		private void Attack(Vector3 point)
 		{
-			if (Helper.GetAllObjectsInCircleRadius(point, data.Weapon.AreaSize, out List<Enemy> hits))
+			if (HelperExtras.GetAllObjectsInCircleRadius(point, data.Weapon.AreaSize, out List<Health> hits, targetLayer))
 			{
-				foreach (Enemy enemy in hits)
+				foreach (Health hit in hits)
 				{
-					enemy.GetComponent<Health>().TakeDamage(data.Damage);
+					hit.TakeDamage(data.Damage);
 				}
 			}
 		}
@@ -112,6 +121,8 @@ namespace GMTK.Characters
 		private void Die()
 		{
 			OnDiedEvent?.Invoke();
+			ParticleSystem particles = Instantiate(deathParticles, transform.position, Quaternion.identity);
+			Destroy(particles.gameObject, particles.main.duration);
 			Destroy(gameObject);
 		}
 	}

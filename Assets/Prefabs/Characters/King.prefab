@@ -7,10 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2900081033543285481, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2900081033543285487, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 9012330922213680438, guid: 499eb9231fa1ec24ca8a7be3fc2dc651, type: 3}
+    - target: {fileID: 5027883605834474113, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549327601474315888, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5609282008753203716, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -22,6 +34,10 @@ PrefabInstance:
     - target: {fileID: 5609282008753203716, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609282008753203722, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5609282009878761198, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: m_RootOrder
@@ -67,9 +83,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5609282009878761202, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
+      propertyPath: targetLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 5609282009878761203, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: m_Name
       value: King
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609282009878761203, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356363693608816769, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
