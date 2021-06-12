@@ -60,8 +60,19 @@ namespace GMTK.Controllers
 
 				character.SetData(data);
 				activeCharacters.Add(character);
-				character.OnDiedEvent += () => activeCharacters.Remove(character);
+				character.OnDiedEvent += () =>
+				{
+					activeCharacters.Remove(character);
+					TriggerDeathEffects();
+				};
 			}
+		}
+
+		private void TriggerDeathEffects()
+		{
+			HelperExtras.Slow(.15f, .8f);
+			HelperExtras.Shake(6, 60, 0.4f);
+			HelperExtras.Flash(.2f);
 		}
 
 		private void OnEnable()
@@ -101,6 +112,7 @@ namespace GMTK.Controllers
 
 		private void Die()
 		{
+			TriggerDeathEffects();
 			Debug.Log("GAME OVER");
 		}
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using GMTK.Characters;
 using GMTK.Enemies;
+using GMTK.Utilities;
 using GMTK.Weapons;
 using PNLib.Utility;
 using UnityEngine;
@@ -21,7 +22,8 @@ namespace GMTK.ProjectileEffects
 		private void TriggerAoE(int damage, float radius)
 		{
 			var muzzle = Instantiate(muzzlePrefab, transform.position, Quaternion.identity);
-			muzzle.transform.localScale = Vector3.one * radius * 2f;
+			muzzle.transform.localScale = Vector3.one * (radius * 2f);
+			HelperExtras.Shake(1, 90, 0.2f);
 			
 			if (Helper.GetAllObjectsInCircleRadius(transform.position, radius, out List<Enemy> enemiesHit))
 			{

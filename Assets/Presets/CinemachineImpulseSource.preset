@@ -86,11 +86,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_ImpulseDefinition.m_TimeEnvelope.m_SustainTime
-    value: 0.4
+    value: 0.2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_ImpulseDefinition.m_TimeEnvelope.m_DecayTime
-    value: 0.7
+    value: 0.2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_ImpulseDefinition.m_TimeEnvelope.m_ScaleWithImpact

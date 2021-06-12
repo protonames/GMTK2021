@@ -88,6 +88,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5609282009878761202, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
+      propertyPath: deathParticles
+      value: 
+      objectReference: {fileID: 3977117035333340839, guid: af5a1851d2a10254896e17aacba54fd0, type: 3}
+    - target: {fileID: 5609282009878761202, guid: 3fdc82cb56249014190f87e44884e0ea, type: 3}
       propertyPath: targetLayer.m_Bits
       value: 128
       objectReference: {fileID: 0}

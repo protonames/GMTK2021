@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4246624410810156405}
   - component: {fileID: 4246624410810156404}
   m_Layer: 0
-  m_Name: Death Particles
+  m_Name: Death FX Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
