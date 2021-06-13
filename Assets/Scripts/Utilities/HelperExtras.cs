@@ -61,8 +61,9 @@ namespace GMTK.Utilities
 			float y = Mathf.Sin(radians);
 			return new Vector2(x, y);
 		}
-		
-		public static bool GetClosestObjectInCircleRadius<T>(Vector3 origin, float radius, out T current, LayerMask layerMask)
+
+		public static bool GetClosestObjectInCircleRadius<T>(Vector3 origin, float radius, out T current,
+			LayerMask layerMask)
 		{
 			Collider2D[] targets = Physics2D.OverlapCircleAll(origin, radius, layerMask);
 			current = default(T);
@@ -89,8 +90,9 @@ namespace GMTK.Utilities
 
 			return !Equals(current, default(T));
 		}
-		
-		public static bool GetAllObjectsInCircleRadius<T>(Vector3 origin, float radius, out List<T> currentList, LayerMask layerMask)
+
+		public static bool GetAllObjectsInCircleRadius<T>(Vector3 origin, float radius, out List<T> currentList,
+			LayerMask layerMask)
 		{
 			Collider2D[] targets = Physics2D.OverlapCircleAll(origin, radius, layerMask);
 			currentList = new List<T>();
@@ -110,8 +112,7 @@ namespace GMTK.Utilities
 
 			return currentList.Count > 0;
 		}
-		
-		
+
 		public static bool GetClosestObjectInList(Vector3 origin, List<Transform> list, out Transform current)
 		{
 			current = default(Transform);
@@ -119,8 +120,8 @@ namespace GMTK.Utilities
 
 			for (int index = 0; index < list.Count; index++)
 			{
-				var target = list[index];
-				
+				Transform target = list[index];
+
 				if (Equals(target, default(Transform)))
 				{
 					continue;

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4efee0be91481414b9dfdeb218b88489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 0cba2067376726e40af62bef0a86fd33, type: 2}
+  enemyInfo: {fileID: 11400000, guid: c8808845931b30f4f97b394fcc1fc567, type: 2}
   moveSpeed: 1.5
-  rotationSpeed: 270
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  rotationSpeed: 270
 --- !u!1001 &8538607701861448525
 PrefabInstance:
   m_ObjectHideFlags: 0

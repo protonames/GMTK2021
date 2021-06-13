@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using GMTK.Info;
 using UnityEngine;
 
-namespace GMTK
+namespace GMTK.UI
 {
 	public class SynergyManager : MonoBehaviour
 	{
 		public static SynergyManager Instance { get; set; }
-
 		public List<SynergyType> ActiveSynergies = new List<SynergyType>();
 
 		private void Awake()

@@ -1,38 +1,38 @@
-﻿using PNLib.UI;
+﻿using GMTK.Info;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GMTK
+namespace GMTK.UI
 {
 	public class SynergyDisplay : MonoBehaviour
 	{
 		[SerializeField]
-		public SynergyInfo synergy;
+		private Image backgroundImage;
 
 		[SerializeField]
-		private TMP_Text synergyName;
-		
+		private HoverDisplay hover;
+
 		[SerializeField]
 		private TMP_Text synergyCount;
 
 		[SerializeField]
-		private Image backgroundImage;
-		
-		[SerializeField]
-		HoverDisplay hover;
+		private TMP_Text synergyName;
 
-		void Start()
+		[SerializeField]
+		public SynergyInfo synergy;
+
+		private void Start()
 		{
 			Display(synergy);
 		}
-		
+
 		public void Display(SynergyInfo synergyInfo)
 		{
 			backgroundImage.color = synergyInfo.Color;
 			synergyName.text = synergyInfo.name;
 			synergyCount.text = "";
-			
+
 			for (int i = 0; i < 4; i++)
 			{
 				if (i < SynergyManager.Instance.GetCount(synergyInfo.Type))

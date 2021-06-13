@@ -1,42 +1,50 @@
-﻿using GMTK.Utilities;
+﻿using GMTK.Info;
+using GMTK.Utilities;
 using TMPro;
 using UnityEngine;
+using CharacterInfo = GMTK.Info.CharacterInfo;
 
-namespace GMTK
+namespace GMTK.UI
 {
 	public class HoverDisplay : MonoBehaviour
 	{
 		[SerializeField]
-		private GameObject hoverPanel;
+		private AudioSource audioSource;
 
 		[SerializeField]
 		private TMP_Text characterName;
-		
+
 		[SerializeField]
 		private TMP_Text description;
 
 		[SerializeField]
-		private AudioSource audioSource;
+		private GameObject hoverPanel;
 
 		public void DisplayCharacter(CharacterInfo info)
 		{
 			if (!info)
+			{
 				return;
-			
+			}
+
 			hoverPanel.SetActive(true);
 			audioSource.Play();
-			
+
 			if (characterName)
+			{
 				characterName.SetText($"{info.name}");
-			
+			}
+
 			description.text = "";
 
 			for (int i = 0; i < info.Sinergies.Length; i++)
 			{
 				if (i != 0)
+				{
 					description.text += ", ";
+				}
 
-				var synergy = info.Sinergies[i];
+				SynergyInfo synergy = info.Sinergies[i];
 				description.text += $"<color=#{synergy.Color.ToHexString()}>{synergy.name}</color>";
 			}
 		}
@@ -45,10 +53,12 @@ namespace GMTK
 		{
 			hoverPanel.SetActive(true);
 			audioSource.Play();
-			
+
 			if (characterName)
+			{
 				characterName.SetText($"{info.name}");
-			
+			}
+
 			description.text = info.Description;
 		}
 

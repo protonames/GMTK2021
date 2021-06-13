@@ -1,9 +1,6 @@
 using UnityEngine;
 
-namespace GMTK
+namespace GMTK.Characters
 {
-    public class PlayerUnit : MonoBehaviour
-    {
-        
-    }
+	public class PlayerUnit : MonoBehaviour { }
 }

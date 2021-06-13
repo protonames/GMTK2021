@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using PNLib.Audio;
+using DG.Tweening;
+using GMTK.Info;
+using GMTK.Utilities;
+using PNLib.Utility;
 using UnityEngine;
 using UnityEngine.UI;
+using CharacterInfo = GMTK.Info.CharacterInfo;
 
-namespace GMTK
+namespace GMTK.UI
 {
 	public class CharacterWindow : MonoBehaviour
 	{
@@ -13,15 +17,17 @@ namespace GMTK
 		private CharacterInfoDisplay characterInfoDisplayPrefab;
 
 		[SerializeField]
+		private Transform characterOptionsContainer;
+
+		[SerializeField]
 		private CharacterInfo[] charactersInfo;
 
 		[SerializeField]
-		private CharacterInfoDisplay[] partyDisplay;
+		private AudioClip clickSFX;
 
 		[SerializeField]
-		private Transform characterOptionsContainer;
+		private AudioClip confirmClickSFX;
 
-		private List<CharacterInfoDisplay> displayedCharacters;
 		[SerializeField]
 		private CharacterInfo emptyCharacter;
 
@@ -29,10 +35,18 @@ namespace GMTK
 		private HoverDisplay hoverDisplay;
 
 		[SerializeField]
-		private List<SynergyDisplay> synergyDisplays;
+		private CharacterInfoDisplay[] partyDisplay;
 
 		[SerializeField]
-		private AudioClip clickSFX;
+		private PartyInfo partyInfo;
+
+		[SerializeField]
+		private Button playButton;
+
+		[SerializeField]
+		private List<SynergyDisplay> synergyDisplays;
+
+		private List<CharacterInfoDisplay> displayedCharacters;
 
 		private void Start()
 		{
@@ -40,23 +54,49 @@ namespace GMTK
 			{
 				display.GetComponent<Button>().onClick.AddListener(() => TryRemoveFromParty(display));
 			}
-			
+
+			DOTween.To(() => MusicManagerExtras.Volume, x => MusicManagerExtras.Volume = x, 0.0625f, 1f);
 			CreateAllCharacters(charactersInfo);
+
+			playButton.onClick.AddListener(
+				() =>
+				{
+					StartCoroutine(LoadGameRoutine());
+				}
+			);
+		}
+
+		private IEnumerator LoadGameRoutine()
+		{
+			SoundManagerExtras.Play(confirmClickSFX);
+			yield return new WaitForSeconds(confirmClickSFX.length);
+
+			DOTween.To(() => MusicManagerExtras.Volume, x => MusicManagerExtras.Volume = x, 0.5f, 1f);
+			partyInfo.Party.Clear();
+
+			foreach (CharacterInfoDisplay item in partyDisplay)
+			{
+				partyInfo.Party.Add(item.Info);
+			}
+
+			GameSceneManager.LoadNext();
 		}
 
 		private void TryRemoveFromParty(CharacterInfoDisplay display)
 		{
 			if (!display.Info)
+			{
 				return;
-			
+			}
+
 			foreach (SynergyInfo synergy in display.Info.Sinergies)
 			{
 				SynergyManager.Instance.ActiveSynergies.Remove(synergy.Type);
 			}
-			
+
 			displayedCharacters.First(x => x.Info == display.Info).GetComponent<Button>().interactable = true;
 			display.Display(emptyCharacter);
-			SoundManager.Play(clickSFX);
+			SoundManagerExtras.Play(clickSFX);
 			UpdateSynergyDisplays();
 			display.Info = null;
 		}
@@ -80,11 +120,13 @@ namespace GMTK
 
 		private void TryAddToParty(CharacterInfo info)
 		{
-			foreach (var partySlot in partyDisplay)
+			foreach (CharacterInfoDisplay partySlot in partyDisplay)
 			{
 				if (partySlot.Info)
+				{
 					continue;
-				
+				}
+
 				partySlot.Display(info);
 				displayedCharacters.First(x => x.Info == info).GetComponent<Button>().interactable = false;
 
@@ -93,7 +135,7 @@ namespace GMTK
 					SynergyManager.Instance.ActiveSynergies.Add(synergy.Type);
 				}
 
-				SoundManager.Play(clickSFX);
+				SoundManagerExtras.Play(clickSFX);
 				UpdateSynergyDisplays();
 				break;
 			}
@@ -101,7 +143,7 @@ namespace GMTK
 
 		private void UpdateSynergyDisplays()
 		{
-			foreach (var display in synergyDisplays)
+			foreach (SynergyDisplay display in synergyDisplays)
 			{
 				display.Refresh();
 			}

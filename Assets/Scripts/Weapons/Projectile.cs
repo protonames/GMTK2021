@@ -10,12 +10,12 @@ namespace GMTK.Weapons
 	{
 		[SerializeField]
 		private GameObject destroyParticles;
-		
-		public bool PlayerProjectile = true;
-		public int Damage;
-		private Rigidbody2D rb;
+
 		public event Action OnDiedEvent;
 		public float AreaSize;
+		public int Damage;
+		public bool PlayerProjectile = true;
+		private Rigidbody2D rb;
 
 		private void Awake()
 		{

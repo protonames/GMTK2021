@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GMTK
+namespace GMTK.Utilities
 {
 	public class GraphicsContainer : MonoBehaviour
 	{

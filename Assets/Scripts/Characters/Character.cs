@@ -1,11 +1,10 @@
 using System;
-using System.Collections.Generic;
 using DG.Tweening;
-using GMTK.Enemies;
 using GMTK.Utilities;
 using GMTK.Weapons;
 using PNLib.Utility;
 using UnityEngine;
+using CharacterInfo = GMTK.Info.CharacterInfo;
 
 namespace GMTK.Characters
 {
@@ -18,16 +17,15 @@ namespace GMTK.Characters
 		[SerializeField]
 		private Transform firePoint;
 
+		public CharacterInfo Info { get; private set; }
+
 		[SerializeField]
 		private Muzzle muzzlePrefab;
 
+		public Transform Target { get; set; }
 		public event Action OnDiedEvent;
-		public CharacterData data;
 		public GraphicsContainer GraphicsContainer;
-		public Transform Target;
 		private Health health;
-		[SerializeField]
-		private LayerMask targetLayer;
 
 		private void Awake()
 		{
@@ -44,12 +42,14 @@ namespace GMTK.Characters
 			health.OnDiedEvent -= Die;
 		}
 
-		public void SetData(CharacterData characterData)
+		public void Set(CharacterInfo info)
 		{
-			data = characterData;
-			health.SetHealth(data.Health);
+			Info = info;
+			GraphicsContainer.BodySpriteRenderer.sprite = info.BodySprite;
+			GraphicsContainer.WeaponSpriteRenderer.sprite = info.WeaponSprite;
+			health.SetHealth(info.Health);
 			CancelInvoke(nameof(TriggerAttack));
-			InvokeRepeating(nameof(TriggerAttack), 1f/data.AttackSpeed, 1f/data.AttackSpeed);
+			InvokeRepeating(nameof(TriggerAttack), 1f / info.AttackSpeed, 1f / info.AttackSpeed);
 		}
 
 		private void RotateFirePointTowardsTarget()
@@ -72,12 +72,12 @@ namespace GMTK.Characters
 
 			float distanceToTarget = Vector2.Distance(Target.position, transform.position);
 
-			if (distanceToTarget > data.AttackRange)
+			if (distanceToTarget > Info.AttackRadius)
 			{
 				Target = null;
 				return;
 			}
-			
+
 			GraphicsContainer.BodySpriteRenderer.transform.DOScale(Vector3.one, .3f)
 				.From(Vector3.one * 1.25f)
 				.SetEase(Ease.OutBounce);
@@ -90,39 +90,12 @@ namespace GMTK.Characters
 
 			Instantiate(muzzlePrefab, weaponTransform.position, Quaternion.identity);
 			RotateFirePointTowardsTarget();
-
-			switch (data.Weapon.AttackType)
-			{
-				case AttackType.Projectile:
-					Fire();
-					break;
-				case AttackType.Instantaneous:
-					Attack(Target.transform.position);
-					break;
-			}
+			Attack();
 		}
 
-		private void Fire()
+		private void Attack()
 		{
-			Vector3 spawnAngle = firePoint.eulerAngles;
-			Vector3 spawnPoint = firePoint.position;
-			Projectile projectile = Instantiate(data.Weapon.Projectile, spawnPoint, Quaternion.Euler(spawnAngle));
-			projectile.Launch(true, data.Weapon.Speed, data.Damage, data.Weapon.AreaSize);
-		}
-
-		private void Attack(Vector3 point)
-		{
-			if (data.Weapon.AreaSize <= 0.1f)
-			{
-				Target.GetComponent<Health>().TakeDamage(data.Damage);
-			}
-			else if (HelperExtras.GetAllObjectsInCircleRadius(point, data.Weapon.AreaSize, out List<Health> hits, targetLayer))
-			{
-				foreach (Health hit in hits)
-				{
-					hit.TakeDamage(data.Damage);
-				}
-			}
+			Target.GetComponent<Health>().TakeDamage(Info.Damage);
 		}
 
 		private void Die()
@@ -131,12 +104,6 @@ namespace GMTK.Characters
 			ParticleSystem particles = Instantiate(deathParticles, transform.position, Quaternion.identity);
 			Destroy(particles.gameObject, particles.main.duration);
 			Destroy(gameObject);
-		}
-
-		private void OnDrawGizmosSelected()
-		{
-			if (data)
-				Gizmos.DrawWireSphere(transform.position, data.AttackRange);
 		}
 	}
 }

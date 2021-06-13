@@ -2,16 +2,20 @@ using GMTK.Characters;
 using GMTK.Utilities;
 using PNLib.Utility;
 using UnityEngine;
+using CharacterInfo = GMTK.Info.CharacterInfo;
 
 namespace GMTK.Enemies
 {
 	public class Enemy : MonoBehaviour
 	{
 		[SerializeField]
-		private CharacterData enemyData;
+		private CharacterInfo enemyInfo;
 
 		[SerializeField]
 		private float moveSpeed = 4f;
+
+		[SerializeField]
+		private LayerMask playerLayer;
 
 		[SerializeField]
 		private float rotationSpeed = 180f;
@@ -19,8 +23,6 @@ namespace GMTK.Enemies
 		private Character character;
 		private Health health;
 		private Rigidbody2D rb;
-		[SerializeField]
-		private LayerMask playerLayer;
 
 		private void Awake()
 		{
@@ -31,8 +33,7 @@ namespace GMTK.Enemies
 
 		private void Start()
 		{
-			
-			character.SetData(enemyData);
+			character.Set(enemyInfo);
 			LookForTarget();
 		}
 
@@ -52,11 +53,9 @@ namespace GMTK.Enemies
 			{
 				LookForTarget();
 			}
-			else
-			{
-				RotateTowardsTarget();
-				Move();
-			}
+
+			RotateTowardsTarget();
+			Move();
 		}
 
 		private void Die()
@@ -69,22 +68,21 @@ namespace GMTK.Enemies
 			Transform myTransform = transform;
 			Vector3 nextPosition = myTransform.position + (myTransform.right * (moveSpeed * Time.deltaTime));
 			Vector3 moveDirection = myTransform.position.DirectionTo(nextPosition);
-			
 			Vector3 scale = character.GraphicsContainer.transform.localScale;
 			scale.x = moveDirection.x >= 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
 			character.GraphicsContainer.transform.localScale = scale;
 
 			if (character.Target)
 			{
-				var distanceToTarget = Vector2.Distance(character.Target.position, transform.position);
+				float distanceToTarget = Vector2.Distance(character.Target.position, transform.position);
 
-				if (distanceToTarget < enemyData.AttackRange)
+				if (distanceToTarget < enemyInfo.AttackRadius)
 				{
 					rb.velocity = Vector2.zero;
 					return;
 				}
 			}
-			
+
 			if (HelperExtras.IsInsideCameraViewport(nextPosition))
 			{
 				rb.velocity = transform.right * moveSpeed;
@@ -104,7 +102,13 @@ namespace GMTK.Enemies
 
 		private void LookForTarget()
 		{
-			if (!character.Target && HelperExtras.GetClosestObjectInCircleRadius(character.transform.position, 999, out PlayerUnit hit, playerLayer))
+			if (!character.Target
+				&& HelperExtras.GetClosestObjectInCircleRadius(
+					character.transform.position,
+					999,
+					out PlayerUnit hit,
+					playerLayer
+				))
 			{
 				character.Target = hit.transform;
 			}
