@@ -8,6 +8,7 @@ namespace GMTK
         public Sprite BodySprite;
         public Sprite WeaponSprite;
         public Color MainColor;
+        public string Description;
         public SynergyInfo[] Sinergies;
     }
 }

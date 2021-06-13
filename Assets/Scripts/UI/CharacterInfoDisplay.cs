@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,9 @@ namespace GMTK
         [SerializeField]
         private Image weaponImage;
 
+        [SerializeField]
+        public HoverDisplay hover;
+
         public CharacterInfo Info { get; set; } 
 
         public void Display(CharacterInfo info)
@@ -29,6 +33,17 @@ namespace GMTK
 
             if (weaponImage)
                 weaponImage.sprite = info.WeaponSprite;
+        }
+
+        public void PointerEnter()
+        {
+            hover.Display(Info);
+            hover.transform.position = transform.position;
+        }
+
+        public void PointerExit()
+        {
+            hover.Hide();
         }
     }
 }

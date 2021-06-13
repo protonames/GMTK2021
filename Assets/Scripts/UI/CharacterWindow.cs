@@ -23,6 +23,9 @@ namespace GMTK
 		[SerializeField]
 		private CharacterInfo emptyCharacter;
 
+		[SerializeField]
+		private HoverDisplay hoverDisplay;
+
 		private void Start()
 		{
 			foreach (CharacterInfoDisplay display in partyDisplay)
@@ -53,6 +56,7 @@ namespace GMTK
 			foreach (CharacterInfo info in characters)
 			{
 				CharacterInfoDisplay display = Instantiate(characterInfoDisplayPrefab, characterOptionsContainer);
+				display.hover = hoverDisplay;
 				displayedCharacters.Add(display);
 				display.Display(info);
 				display.GetComponent<Button>().onClick.AddListener(() => TryAddToParty(display.Info));

@@ -137,5 +137,10 @@ namespace GMTK.Utilities
 
 			return !Equals(current, default(Transform));
 		}
+
+		public static string ToHexString(this Color color)
+		{
+			return ColorUtility.ToHtmlStringRGB(color);
+		}
 	}
 }
