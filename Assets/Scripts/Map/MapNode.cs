@@ -5,8 +5,9 @@ using UnityEngine.UI;
 using System;
 using Random = UnityEngine.Random;
 using TMPro;
+using UnityEngine.SceneManagement;
 
-namespace PNTemplate
+namespace GMTK
 {
 	public class MapNode : MonoBehaviour
 	{
@@ -16,10 +17,10 @@ namespace PNTemplate
 
 		int maxConnections = 4;
 		public bool isStarter = false;
-		public bool isBoss = false;
 		public bool isConnected = false;
 		public NodeTypes type = NodeTypes.Combat;
 		public Vector3 pos;
+		public int id;
 
 		// Update is called once per frame
 		void Update()
@@ -105,18 +106,35 @@ namespace PNTemplate
 			debugText.text = type.ToString();
 		}
 
+		public MapNodeData GetSaveData()
+		{
+			MapNodeData resp = new MapNodeData();
+			resp.pos = pos;
+			resp.id = id;
+			resp.type = type;
+			resp.isStarter = isStarter;
+
+			resp.connections = new int[connectedNodes.Count];
+			for (int i = 0; i < connectedNodes.Count; i++)
+			{
+				resp.connections[i] = connectedNodes[i].id;
+			}
+
+			return resp;
+		}
+
 		public void Click()
 		{
 			switch (type)
 			{
 				case NodeTypes.Combat:
-					print("TODO: Click on Combat.");
+					SceneManager.LoadScene("Main");
 					break;
 				case NodeTypes.Elite:
 					print("TODO: Click on Elite.");
 					break;
 				case NodeTypes.Shop:
-					print("TODO: Click on Shop.");
+					SceneManager.LoadScene("CharacterSelector");
 					break;
 				case NodeTypes.Boss:
 					print("TODO: Click on Boss.");

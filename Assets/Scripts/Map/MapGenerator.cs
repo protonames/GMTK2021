@@ -4,14 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-
-namespace PNTemplate
+namespace GMTK
 {
 	public class MapGenerator : MonoBehaviour
 	{
 		[SerializeField] private MapNode nodePrefab;
-		[SerializeField] private MapNode bossNodePrefab;
-
 
 		int camadas = 5;
 		int minNodesPorCamada = 2;
@@ -20,25 +17,35 @@ namespace PNTemplate
 		float yRange = 200f;
 		float xSpacing = 100f;
 
-		RectTransform rt;
-
 		// Start is called before the first frame update
 		void Start()
 		{
-			rt = gameObject.GetComponent<RectTransform>();
+			// GenerateMap();
+		}
 
+		// Update is called once per frame
+		void Update()
+		{
+
+		}
+
+		public MapNodeData[] GenerateMap()
+		{
 			float midX = 600;
 			float ceilingY = 600;
 
 			float incrementX = 200;
 			float incrementY = 200;
 
+			int id = 0;
+
 			Vector3 pos = new Vector3(midX, ceilingY, 0);
-			MapNode bossNodeAux = Instantiate(bossNodePrefab, pos, Quaternion.identity, transform);
-			bossNodeAux.isBoss = true;
+			MapNode bossNodeAux = Instantiate(nodePrefab, pos, Quaternion.identity, transform);
 			bossNodeAux.type = NodeTypes.Boss;
 			bossNodeAux.pos = pos;
+			bossNodeAux.id = id;
 			bossNodeAux.SetUp(false);
+			id++;
 
 			List<List<MapNode>> matrix = new List<List<MapNode>>();
 			int totalLevel = 7;
@@ -60,6 +67,8 @@ namespace PNTemplate
 					MapNode nodeAux = CreateNode(posX, posY);
 					if (level == totalLevel - 1)
 						nodeAux.isStarter = true;
+					nodeAux.id = id;
+					id++;
 					nodesCamadas.Add(nodeAux);
 				}
 				matrix.Add(nodesCamadas);
@@ -98,7 +107,6 @@ namespace PNTemplate
 				}
 			}
 
-
 			prob = new int[] { 0, 0, 0, 1 };
 			for (int i = 0; i < matrix.Count - 1; i++)
 			{
@@ -113,12 +121,49 @@ namespace PNTemplate
 			{
 				matrix[matrix.Count - 1][j].SetUp(false);
 			}
+
+			MapNodeData[] saverAux = new MapNodeData[id];
+			saverAux[0] = bossNodeAux.GetSaveData();
+			int indexAux = 1;
+
+			for (int i = 0; i < matrix.Count; i++)
+			{
+				var currentLayer = matrix[i];
+				for (int j = 0; j < currentLayer.Count; j++)
+				{
+					saverAux[indexAux] = currentLayer[j].GetSaveData();
+					indexAux++;
+				}
+			}
+
+			return saverAux;
 		}
 
-		// Update is called once per frame
-		void Update()
+		public void GenerateMap(MapNodeData[] savedStructure)
 		{
+			MapNode[] nodes = new MapNode[savedStructure.Length];
+			for (int i = 0; i < savedStructure.Length; i++)
+			{
+				Vector3 position = savedStructure[i].pos;
+				MapNode nodeAux = CreateNode(position.x, position.y);
+				nodeAux.type = savedStructure[i].type;
+				nodeAux.isStarter = savedStructure[i].isStarter;
+				nodes[i] = nodeAux;
+			}
 
+			for (int i = 0; i < savedStructure.Length; i++)
+			{
+				int[] connections = savedStructure[i].connections;
+				for (int j = 0; j < connections.Length; j++)
+				{
+					nodes[i].SetConnections(nodes[connections[j]], gameObject);
+				}
+			}
+
+			foreach (var node in nodes)
+			{
+				node.SetUp(false);
+			}
 		}
 
 		MapNode CreateNode(float posX, float posY)
