@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace GMTK
+namespace GMTK.Tweens
 {
 	public class TweenFloaty : MonoBehaviour
 	{
@@ -16,7 +16,9 @@ namespace GMTK
 
 		private void Start()
 		{
-			transform.DOLocalMoveY(transform.localPosition.y + floatAmount, duration).SetEase(ease).SetLoops(-1, LoopType.Yoyo);
+			transform.DOLocalMoveY(transform.localPosition.y + floatAmount, duration)
+				.SetEase(ease)
+				.SetLoops(-1, LoopType.Yoyo);
 		}
 	}
 }

@@ -1,20 +1,20 @@
-using GMTK.Weapons;
 using UnityEngine;
 
-namespace GMTK
+namespace GMTK.Weapons
 {
-    public class PierceProjectile : Projectile
-    {
-        [SerializeField]
-        private int pierceCount = 3;
-        protected override void Die()
-        {
-            pierceCount--;
+	public class PierceProjectile : Projectile
+	{
+		[SerializeField]
+		private int pierceCount = 3;
 
-            if (pierceCount <= 0)
-            {
-                base.Die();
-            }
-        }
-    }
+		protected override void Die()
+		{
+			pierceCount--;
+
+			if (pierceCount <= 0)
+			{
+				base.Die();
+			}
+		}
+	}
 }

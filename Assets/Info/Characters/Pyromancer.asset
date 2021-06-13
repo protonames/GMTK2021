@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2259ac22f0bfdc4198bbb9837ae0474, type: 3}
+  m_Name: Pyromancer
+  m_EditorClassIdentifier: 
+  BodySprite: {fileID: 4112077241842827410, guid: 0eaad3cf2b9be6746bb63448036956a6, type: 3}
+  WeaponSprite: {fileID: 129390903782693225, guid: 7d729f23e7a37b349aabfcf1d4b30760, type: 3}
+  MainColor: {r: 0.4784314, g: 0.08627451, b: 0.08235294, a: 1}
+  Sinergies:
+  - {fileID: 11400000, guid: ac9e3c2a5fd43b94583e3e8418405db3, type: 2}
+  - {fileID: 11400000, guid: 701636f74a7d0d7479466f90ca2a0478, type: 2}

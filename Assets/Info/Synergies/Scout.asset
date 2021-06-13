@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 3
   Color: {r: 0.19607845, g: 0.6392157, b: 0.3137255, a: 1}
+  Description: Chance of critical damage in single target attacks  (10%/20%) <color=grey>[2/4]</color>

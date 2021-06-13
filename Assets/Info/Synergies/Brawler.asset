@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   Color: {r: 0.2509804, g: 0.5058824, b: 0.92549026, a: 1}
+  Description: Increases Party HP by (+5/+10) <color=grey>[2/4]</color>

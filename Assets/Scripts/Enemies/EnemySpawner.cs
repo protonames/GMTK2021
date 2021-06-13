@@ -1,5 +1,7 @@
 using System.Collections;
+using GMTK.Characters;
 using UnityEngine;
+using CharacterInfo = GMTK.Info.CharacterInfo;
 
 namespace GMTK.Enemies
 {

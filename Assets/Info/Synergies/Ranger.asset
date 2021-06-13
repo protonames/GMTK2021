@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   Color: {r: 0.89019614, g: 0.25490198, b: 0.20000002, a: 1}
+  Description: Increases Party Attack Speed by (+15%/+30%) <color=grey>[2/4]</color>

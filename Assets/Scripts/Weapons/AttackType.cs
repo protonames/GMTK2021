@@ -1,8 +1,4 @@
 ﻿namespace GMTK.Weapons
 {
-	public enum AttackType
-	{
-		Projectile,
-		Instantaneous
-	}
+	public enum AttackType { Projectile, Instantaneous }
 }

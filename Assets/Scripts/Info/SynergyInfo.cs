@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 
-namespace GMTK
+namespace GMTK.Info
 {
 	[CreateAssetMenu(fileName = "New Synergy", menuName = "Info/Synergy")]
 	public class SynergyInfo : ScriptableObject
 	{
-		public SynergyType Type;
 		public Color Color;
+		public string Description;
+		public SynergyType Type;
 	}
 }
