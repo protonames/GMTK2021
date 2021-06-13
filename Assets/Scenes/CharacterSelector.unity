@@ -434,6 +434,7 @@ MonoBehaviour:
   - {fileID: 2043849273}
   - {fileID: 561186710}
   characterOptionsContainer: {fileID: 42314672}
+  emptyCharacter: {fileID: 11400000, guid: 4ae13c587becb53439c17b1826c41250, type: 2}
 --- !u!1 &458466340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,7 +1348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6973246342244511869, guid: 91388f90ad686e64d83edfdcc8f7d353, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 148.11
+      value: 148.10999
       objectReference: {fileID: 0}
     - target: {fileID: 6973246342244511869, guid: 91388f90ad686e64d83edfdcc8f7d353, type: 3}
       propertyPath: m_AnchoredPosition.y

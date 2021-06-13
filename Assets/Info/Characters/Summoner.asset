@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2259ac22f0bfdc4198bbb9837ae0474, type: 3}
   m_Name: Summoner
   m_EditorClassIdentifier: 
-  BodySprite: {fileID: 9166191916666370638, guid: 0eaad3cf2b9be6746bb63448036956a6, type: 3}
-  WeaponSprite: {fileID: -8927192432209451878, guid: 7d729f23e7a37b349aabfcf1d4b30760, type: 3}
-  MainColor: {r: 0.27058825, g: 0.5764706, b: 0.4666667, a: 1}
+  BodySprite: {fileID: 4948908515826042256, guid: 0eaad3cf2b9be6746bb63448036956a6, type: 3}
+  WeaponSprite: {fileID: 5230414792996074030, guid: 7d729f23e7a37b349aabfcf1d4b30760, type: 3}
+  MainColor: {r: 0.41960788, g: 0.7686275, b: 0.7843138, a: 1}
   Sinergies:
   - {fileID: 11400000, guid: ac9e3c2a5fd43b94583e3e8418405db3, type: 2}
   - {fileID: 11400000, guid: 2ddac3565edf2c949bf87ecbed9ff064, type: 2}

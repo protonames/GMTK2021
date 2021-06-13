@@ -20,10 +20,27 @@ namespace GMTK
 		private Transform characterOptionsContainer;
 
 		private List<CharacterInfoDisplay> displayedCharacters;
+		[SerializeField]
+		private CharacterInfo emptyCharacter;
 
 		private void Start()
 		{
+			foreach (CharacterInfoDisplay display in partyDisplay)
+			{
+				display.GetComponent<Button>().onClick.AddListener(() => TryRemoveFromParty(display));
+			}
+			
 			CreateAllCharacters(charactersInfo);
+		}
+
+		private void TryRemoveFromParty(CharacterInfoDisplay display)
+		{
+			if (!display.Info)
+				return;
+			
+			displayedCharacters.First(x => x.Info == display.Info).GetComponent<Button>().interactable = true;
+			display.Display(emptyCharacter);
+			display.Info = null;
 		}
 
 		private void CreateAllCharacters(CharacterInfo[] characters)
