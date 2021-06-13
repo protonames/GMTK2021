@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,9 @@ namespace GMTK
 		[SerializeField]
 		private HoverDisplay hoverDisplay;
 
+		[SerializeField]
+		private List<SynergyDisplay> synergyDisplays;
+
 		private void Start()
 		{
 			foreach (CharacterInfoDisplay display in partyDisplay)
@@ -41,8 +45,14 @@ namespace GMTK
 			if (!display.Info)
 				return;
 			
+			foreach (SynergyInfo synergy in display.Info.Sinergies)
+			{
+				SynergyManager.Instance.ActiveSynergies.Remove(synergy.Type);
+			}
+			
 			displayedCharacters.First(x => x.Info == display.Info).GetComponent<Button>().interactable = true;
 			display.Display(emptyCharacter);
+			UpdateSynergyDisplays();
 			display.Info = null;
 		}
 
@@ -72,7 +82,22 @@ namespace GMTK
 				
 				partySlot.Display(info);
 				displayedCharacters.First(x => x.Info == info).GetComponent<Button>().interactable = false;
+
+				foreach (SynergyInfo synergy in info.Sinergies)
+				{
+					SynergyManager.Instance.ActiveSynergies.Add(synergy.Type);
+				}
+
+				UpdateSynergyDisplays();
 				break;
+			}
+		}
+
+		private void UpdateSynergyDisplays()
+		{
+			foreach (var display in synergyDisplays)
+			{
+				display.Refresh();
 			}
 		}
 	}

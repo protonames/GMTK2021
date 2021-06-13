@@ -15,10 +15,17 @@ namespace GMTK
 		[SerializeField]
 		private TMP_Text description;
 
-		public void Display(CharacterInfo info)
+		[SerializeField]
+		private AudioSource audioSource;
+
+		public void DisplayCharacter(CharacterInfo info)
 		{
 			hoverPanel.SetActive(true);
-			characterName.SetText($"{info.name}");
+			audioSource.Play();
+			
+			if (characterName)
+				characterName.SetText($"{info.name}");
+			
 			description.text = "";
 
 			for (int i = 0; i < info.Sinergies.Length; i++)
@@ -29,6 +36,17 @@ namespace GMTK
 				var synergy = info.Sinergies[i];
 				description.text += $"<color=#{synergy.Color.ToHexString()}>{synergy.name}</color>";
 			}
+		}
+
+		public void DisplaySynergy(SynergyInfo info)
+		{
+			hoverPanel.SetActive(true);
+			audioSource.Play();
+			
+			if (characterName)
+				characterName.SetText($"{info.name}");
+			
+			description.text = info.Description;
 		}
 
 		public void Hide()

@@ -7,5 +7,6 @@ namespace GMTK
 	{
 		public SynergyType Type;
 		public Color Color;
+		public string Description;
 	}
 }

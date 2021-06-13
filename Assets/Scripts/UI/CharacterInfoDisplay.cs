@@ -37,8 +37,8 @@ namespace GMTK
 
         public void PointerEnter()
         {
-            hover.Display(Info);
             hover.transform.position = transform.position;
+            hover.DisplayCharacter(Info);
         }
 
         public void PointerExit()
