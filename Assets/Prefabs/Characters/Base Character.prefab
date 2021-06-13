@@ -103,6 +103,9 @@ MonoBehaviour:
   data: {fileID: 0}
   GraphicsContainer: {fileID: 1852540600794914967}
   Target: {fileID: 0}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &2900081033196955451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -157,6 +160,14 @@ PrefabInstance:
     - target: {fileID: 7294710276055155019, guid: a685e1de02288e0418821a5b6e79dfd2, type: 3}
       propertyPath: m_Name
       value: Graphics Container
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342842188834016575, guid: a685e1de02288e0418821a5b6e79dfd2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6434815177628243973, guid: 0eaad3cf2b9be6746bb63448036956a6, type: 3}
+    - target: {fileID: 7342842188834016575, guid: a685e1de02288e0418821a5b6e79dfd2, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a685e1de02288e0418821a5b6e79dfd2, type: 3}
