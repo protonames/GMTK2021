@@ -20,6 +20,9 @@ namespace GMTK
 
 		public void DisplayCharacter(CharacterInfo info)
 		{
+			if (!info)
+				return;
+			
 			hoverPanel.SetActive(true);
 			audioSource.Play();
 			

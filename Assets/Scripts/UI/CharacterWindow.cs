@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using PNLib.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,6 +31,9 @@ namespace GMTK
 		[SerializeField]
 		private List<SynergyDisplay> synergyDisplays;
 
+		[SerializeField]
+		private AudioClip clickSFX;
+
 		private void Start()
 		{
 			foreach (CharacterInfoDisplay display in partyDisplay)
@@ -52,6 +56,7 @@ namespace GMTK
 			
 			displayedCharacters.First(x => x.Info == display.Info).GetComponent<Button>().interactable = true;
 			display.Display(emptyCharacter);
+			SoundManager.Play(clickSFX);
 			UpdateSynergyDisplays();
 			display.Info = null;
 		}
@@ -88,6 +93,7 @@ namespace GMTK
 					SynergyManager.Instance.ActiveSynergies.Add(synergy.Type);
 				}
 
+				SoundManager.Play(clickSFX);
 				UpdateSynergyDisplays();
 				break;
 			}
