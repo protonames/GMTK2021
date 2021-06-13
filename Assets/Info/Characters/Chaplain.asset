@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2259ac22f0bfdc4198bbb9837ae0474, type: 3}
+  m_Name: Chaplain
+  m_EditorClassIdentifier: 
+  BodySprite: {fileID: 9166191916666370638, guid: 0eaad3cf2b9be6746bb63448036956a6, type: 3}
+  WeaponSprite: {fileID: -8927192432209451878, guid: 7d729f23e7a37b349aabfcf1d4b30760, type: 3}
+  MainColor: {r: 0.27058825, g: 0.5764706, b: 0.4666667, a: 1}
+  Sinergies:
+  - {fileID: 11400000, guid: 061df490497d4dc43a37c468e2c85327, type: 2}
+  - {fileID: 11400000, guid: ac9e3c2a5fd43b94583e3e8418405db3, type: 2}
+  - {fileID: 11400000, guid: 2ddac3565edf2c949bf87ecbed9ff064, type: 2}
