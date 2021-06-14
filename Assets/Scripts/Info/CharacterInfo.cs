@@ -1,5 +1,6 @@
 using UnityEngine;
-
+using GMTK.Weapons;
+using GMTK.Characters;
 namespace GMTK.Info
 {
 	[CreateAssetMenu(fileName = "New Character", menuName = "Info/Character")]
@@ -17,5 +18,15 @@ namespace GMTK.Info
 		public Color MainColor;
 		public SynergyInfo[] Sinergies;
 		public Sprite WeaponSprite;
+
+		[Header("[WEAPON]")]
+		public Projectile projectile;
+		public SpecialEffect specialEffect;
+
+		public void LaunchProjectile(Transform originPoint, Health target)
+		{
+			Projectile projectileInstance = Instantiate(projectile, originPoint.position, Quaternion.identity, null);
+			projectileInstance.Launch(target, true, 5, Damage, AttackRadius);
+		}
 	}
 }
