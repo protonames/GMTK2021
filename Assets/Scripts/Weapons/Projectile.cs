@@ -16,6 +16,8 @@ namespace GMTK.Weapons
 		public int Damage;
 		public bool PlayerProjectile = true;
 		private Rigidbody2D rb;
+		private Health target;
+		private SpecialEffect specialEffect;
 
 		private void Awake()
 		{
@@ -47,6 +49,7 @@ namespace GMTK.Weapons
 				{
 					health.TakeDamage(Damage);
 					Die();
+					if (specialEffect != null) specialEffect.Activate();
 				}
 			}
 			else
@@ -57,15 +60,19 @@ namespace GMTK.Weapons
 				{
 					health.TakeDamage(Damage);
 					Die();
+					if (specialEffect != null) specialEffect.Activate();
 				}
 			}
 		}
 
-		public void Launch(bool playerProjectile, float speed, int damage, float areaSize = 0)
+		public void Launch(Health target, bool playerProjectile, float speed, int damage, float areaSize = 0)
 		{
+			this.target = target;
 			PlayerProjectile = playerProjectile;
 			Damage = damage;
 			AreaSize = areaSize;
+
+			transform.right = target.gameObject.transform.position - transform.position;
 			rb.velocity = transform.right * speed;
 		}
 

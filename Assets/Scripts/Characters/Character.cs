@@ -48,6 +48,8 @@ namespace GMTK.Characters
 			GraphicsContainer.BodySpriteRenderer.sprite = info.BodySprite;
 			GraphicsContainer.WeaponSpriteRenderer.sprite = info.WeaponSprite;
 			health.SetHealth(info.Health);
+
+
 			CancelInvoke(nameof(TriggerAttack));
 			InvokeRepeating(nameof(TriggerAttack), 1f / info.AttackSpeed, 1f / info.AttackSpeed);
 		}
@@ -95,7 +97,17 @@ namespace GMTK.Characters
 
 		private void Attack()
 		{
-			Target.GetComponent<Health>().TakeDamage(Info.Damage);
+			Health targetHealth = Target.GetComponent<Health>();
+
+			if (Info.projectile != null)
+			{
+				Info.LaunchProjectile(firePoint, targetHealth);
+			}
+			else
+			{
+				targetHealth.TakeDamage(Info.Damage);
+				if (Info.specialEffect != null) Info.specialEffect.Activate();
+			}
 		}
 
 		private void Die()
