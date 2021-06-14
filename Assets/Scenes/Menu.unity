@@ -1052,6 +1052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterInfoDisplayPrefab: {fileID: 5114919482673064890, guid: f3012f5804bbfed49a0c959543569ce3, type: 3}
+  characterOptionsContainer: {fileID: 42314672}
   charactersInfo:
   - {fileID: 11400000, guid: 4367089aae492794a918151e16bc5adb, type: 2}
   - {fileID: 11400000, guid: d1e33be36a8be9348944a8ad37842cd6, type: 2}
@@ -1063,23 +1064,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d197a3ea9c4883745b432a115b05e285, type: 2}
   - {fileID: 11400000, guid: 8000b237673af144c8e46c2efb0c1117, type: 2}
   - {fileID: 11400000, guid: a4f0c895bfc692b46b1f489d9a678bc3, type: 2}
+  clickSFX: {fileID: 8300000, guid: f4ee463d0f4b39c40b9ef9fee295c635, type: 3}
+  confirmClickSFX: {fileID: 8300000, guid: fd391d5c6b2a8da4986882893058b7a2, type: 3}
+  emptyCharacter: {fileID: 11400000, guid: 4ae13c587becb53439c17b1826c41250, type: 2}
+  hoverDisplay: {fileID: 2106206777}
   partyDisplay:
   - {fileID: 1918778996}
   - {fileID: 693684775}
   - {fileID: 2043849273}
   - {fileID: 561186710}
-  characterOptionsContainer: {fileID: 42314672}
-  emptyCharacter: {fileID: 11400000, guid: 4ae13c587becb53439c17b1826c41250, type: 2}
-  hoverDisplay: {fileID: 2106206777}
+  partyInfo: {fileID: 11400000, guid: eb355032c045c494cb7f712c908e455e, type: 2}
+  playButton: {fileID: 1011892351}
   synergyDisplays:
   - {fileID: 1358997733}
   - {fileID: 2039522695}
   - {fileID: 604571049}
   - {fileID: 819855296}
-  clickSFX: {fileID: 8300000, guid: f4ee463d0f4b39c40b9ef9fee295c635, type: 3}
-  playButton: {fileID: 1011892351}
-  confirmClickSFX: {fileID: 8300000, guid: fd391d5c6b2a8da4986882893058b7a2, type: 3}
-  partyInfo: {fileID: 11400000, guid: eb355032c045c494cb7f712c908e455e, type: 2}
 --- !u!1001 &561186708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2516,10 +2516,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e9f324aaec4120872a43bf5a7aba6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverPanel: {fileID: 429850654}
+  audioSource: {fileID: 1085896125}
   characterName: {fileID: 0}
   description: {fileID: 267622590}
-  audioSource: {fileID: 1085896125}
+  hoverPanel: {fileID: 429850654}
 --- !u!222 &1085896124
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4280,10 +4280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e9f324aaec4120872a43bf5a7aba6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverPanel: {fileID: 36295426}
+  audioSource: {fileID: 2106206778}
   characterName: {fileID: 965329095}
   description: {fileID: 364468659}
-  audioSource: {fileID: 2106206778}
+  hoverPanel: {fileID: 36295426}
 --- !u!82 &2106206778
 AudioSource:
   m_ObjectHideFlags: 0
