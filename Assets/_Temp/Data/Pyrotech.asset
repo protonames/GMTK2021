@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002d3a680c9c4ce090c2e5ceb6e8d5e2, type: 3}
+  m_Name: Pyrotech
+  m_EditorClassIdentifier: 
+  AccelerationScale: 0.75
+  AccelerationTime: 1
+  BoostRate: 0.5
+  BurstInterval: 0
+  FireRate: 1.5
+  FireType: 0
+  Graphics: {fileID: 4065081983229500113, guid: 376829f38cbc2094fbef9520966c4ea3, type: 3}
+  LinearShotSpread: 0.35
+  MoveSpeed: 4
+  MultiShotSpread: 0
+  Muzzle: {fileID: 5328512901462118439, guid: 563f6d093edd26b4c9059e250ee22a12, type: 3}
+  ProjectileAccelerate: 1
+  ProjectileAmount: 1
+  Projectiles:
+  - {fileID: 6508669737487443048, guid: a7d7665ad207b5b45943e992e2b3f623, type: 3}
+  ProjectileSpeed: 24

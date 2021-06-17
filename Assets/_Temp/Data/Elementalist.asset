@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002d3a680c9c4ce090c2e5ceb6e8d5e2, type: 3}
+  m_Name: Elementalist
+  m_EditorClassIdentifier: 
+  AccelerationScale: -0.75
+  AccelerationTime: 0.5
+  BoostRate: 0.5
+  BurstInterval: 0
+  FireMode: 0
+  FireRate: 0.8
+  FireType: 0
+  Graphics: {fileID: 8434271080226962361, guid: 6ef00d8bf09291544a8adc70e0ffc0f3, type: 3}
+  LinearShotSpread: 1
+  MoveSpeed: 4
+  MultiShotSpread: 0
+  Muzzle: {fileID: 5328512901462118439, guid: 563f6d093edd26b4c9059e250ee22a12, type: 3}
+  ProjectileAccelerate: 0
+  ProjectileAmount: 3
+  Projectiles:
+  - {fileID: 4267574121597175590, guid: 6c7f30e2898c7d54bb10d9d5c79d8b11, type: 3}
+  - {fileID: 4267574121597175590, guid: ed2fd57e975fb0c4590a4ecac357d03d, type: 3}
+  - {fileID: 4267574121597175590, guid: ae3578802bd915f4fba76c5718f5405e, type: 3}
+  - {fileID: 4267574121597175590, guid: c71856284ae937a46aecce77abbce8fe, type: 3}
+  ProjectileSpeed: 10
