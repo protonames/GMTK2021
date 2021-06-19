@@ -254,6 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b18d42a02b88d448bf5509ddecf5e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelHolder: {fileID: 11400000, guid: 593e9d6b63c6e7446a22bafe93279dd2, type: 2}
+  EnemiesToSpawn: []
 --- !u!4 &390560961
 Transform:
   m_ObjectHideFlags: 0
@@ -1094,7 +1096,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1605381725}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.45533332
+  m_Size: 0.454
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

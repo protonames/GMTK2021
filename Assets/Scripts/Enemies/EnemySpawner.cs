@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using GMTK.Characters;
+using GMTK.Levels;
 using UnityEngine;
 using CharacterInfo = GMTK.Info.CharacterInfo;
 
@@ -24,9 +26,16 @@ namespace GMTK.Enemies
 
 		private float spawnCadenceAux;
 
+		private List<Enemy> spawnedEnemies = new List<Enemy>();
+		private List<Enemy> toSpawnEnemies;
+		private int completeCount;
+
+
 		private void Start()
 		{
 			spawnCadenceAux = Time.time + spawnCadence;
+			toSpawnEnemies = MapProgress.Instance.EnemiesToSpawn;
+			completeCount = toSpawnEnemies.Count;
 		}
 
 		private void Update()
@@ -37,18 +46,48 @@ namespace GMTK.Enemies
 			}
 
 			spawnCadenceAux = Time.time + spawnCadence;
-			StartCoroutine(SpawnWaitRoutine());
+
+			if (toSpawnEnemies.Count == 0)
+			{
+				CheckEnd();
+			}
+			else
+			{
+				StartCoroutine(SpawnWaitRoutine());
+			}
 		}
 
 		private IEnumerator SpawnWaitRoutine()
 		{
+			if (toSpawnEnemies.Count == 0)
+				yield break;
+
+			var enemyToSpawn = toSpawnEnemies[0];
+			toSpawnEnemies.RemoveAt(0);
+
 			GameObject spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 			Vector3 spawnPosition = spawnPoint.transform.position;
 			GameObject effect = Instantiate(spawnEffect, spawnPosition, Quaternion.identity, null);
 			yield return new WaitForSeconds(spawnEffectDelay);
 
 			Destroy(effect.gameObject);
-			Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, null);
+			Enemy enemy = Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity, null);
+			spawnedEnemies.Add(enemy);
+		}
+
+		private void CheckEnd()
+		{
+			if (completeCount != spawnedEnemies.Count) return;
+
+			foreach (var enemy in spawnedEnemies)
+			{
+				if (enemy != null)
+				{
+					return;
+				}
+			}
+
+			MapProgress.Instance.ReturnToMap();
 		}
 	}
 }

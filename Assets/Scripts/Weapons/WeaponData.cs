@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using GMTK.Characters;
 namespace GMTK.Weapons
 {
 	[CreateAssetMenu(fileName = "New Weapon", menuName = "Data/Weapon", order = 0)]
@@ -20,5 +20,14 @@ namespace GMTK.Weapons
 		public ProjectilePattern Pattern;
 		public Projectile[] Projectiles;
 		public int Speed;
+
+		[SerializeField] private AttackController attackController;
+
+		public AttackController ReturnController(Character character)
+		{
+			AttackController attack = Instantiate(attackController, character.transform);
+			attack.SetUp(character, this);
+			return attack;
+		}
 	}
 }

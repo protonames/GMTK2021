@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2259ac22f0bfdc4198bbb9837ae0474, type: 3}
   m_Name: Hoplite
   m_EditorClassIdentifier: 
-  AttackRadius: 1
-  AttackSpeed: 1
+  AttackRadius: 2
+  AttackSpeed: 2
   BodySprite: {fileID: -3681199634095234045, guid: 0eaad3cf2b9be6746bb63448036956a6, type: 3}
-  Damage: 1
+  Damage: 3
   Description: 
   Health: 10
   MainColor: {r: 0.24705884, g: 0.41960788, b: 0.6509804, a: 1}
@@ -25,3 +25,4 @@ MonoBehaviour:
   WeaponSprite: {fileID: 7667908151710308826, guid: 7d729f23e7a37b349aabfcf1d4b30760, type: 3}
   projectile: {fileID: 0}
   specialEffect: {fileID: 7129793745166110422, guid: 67a588b0a6e98bc4bb36f02a6f99e518, type: 3}
+  weaponData: {fileID: 11400000, guid: e69ee41c255b6f04eba8cb2a612c2443, type: 2}

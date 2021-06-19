@@ -25,3 +25,4 @@ MonoBehaviour:
   WeaponSprite: {fileID: 6263951104447468833, guid: 7d729f23e7a37b349aabfcf1d4b30760, type: 3}
   projectile: {fileID: 300994145775445142, guid: d04cb8e1847b1674ebb7d5c7f1bb119d, type: 3}
   specialEffect: {fileID: 0}
+  weaponData: {fileID: 11400000, guid: 4ca187ea16dfc43459cbf1c1b52e76c5, type: 2}
