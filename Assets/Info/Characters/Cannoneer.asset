@@ -15,7 +15,7 @@ MonoBehaviour:
   AttackRadius: 10
   AttackSpeed: 1
   BodySprite: {fileID: 4071960801664167416, guid: 0eaad3cf2b9be6746bb63448036956a6, type: 3}
-  Damage: 1
+  Damage: 3
   Description: 
   Health: 10
   MainColor: {r: 0.32941177, g: 0.078431375, b: 0.10588236, a: 1}
@@ -23,4 +23,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 061df490497d4dc43a37c468e2c85327, type: 2}
   - {fileID: 11400000, guid: 2ddac3565edf2c949bf87ecbed9ff064, type: 2}
   WeaponSprite: {fileID: 6263951104447468833, guid: 7d729f23e7a37b349aabfcf1d4b30760, type: 3}
-  weaponData: {fileID: 0}
+  projectile: {fileID: 300994145775445142, guid: d04cb8e1847b1674ebb7d5c7f1bb119d, type: 3}
+  specialEffect: {fileID: 0}
+  weaponData: {fileID: 11400000, guid: 4ca187ea16dfc43459cbf1c1b52e76c5, type: 2}

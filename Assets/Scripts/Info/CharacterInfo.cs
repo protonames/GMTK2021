@@ -23,10 +23,12 @@ namespace GMTK.Info
 		public Projectile projectile;
 		public SpecialEffect specialEffect;
 
+		public WeaponData weaponData;
+
 		public void LaunchProjectile(Transform originPoint, Health target)
 		{
-			Projectile projectileInstance = Instantiate(projectile, originPoint.position, Quaternion.identity, null);
-			projectileInstance.Launch(target, true, 5, Damage, AttackRadius);
+			// Projectile projectileInstance = Instantiate(projectile, originPoint.position, Quaternion.identity, null);
+			// projectileInstance.Launch(target, true, 5, Damage, AttackRadius);
 		}
 	}
 }

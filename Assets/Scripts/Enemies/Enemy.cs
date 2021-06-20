@@ -8,6 +8,8 @@ namespace GMTK.Enemies
 {
 	public class Enemy : MonoBehaviour
 	{
+		public int EnemyCost = 1;
+
 		[SerializeField]
 		private CharacterInfo enemyInfo;
 

@@ -7,16 +7,16 @@ using Random = UnityEngine.Random;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-namespace GMTK
+namespace GMTK.Levels
 {
 	public class MapNode : MonoBehaviour
 	{
-		[SerializeField] private List<MapNode> connectedNodes;
+		public List<MapNode> connectedNodes;
 		[SerializeField] private RectTransform linePrefab;
 		[SerializeField] private Button buttonPrefab;
 
 		int maxConnections = 4;
-		public bool isStarter = false;
+		public bool canEnter = false;
 		public bool isConnected = false;
 		public NodeTypes type = NodeTypes.Combat;
 		public Vector3 pos;
@@ -70,7 +70,7 @@ namespace GMTK
 		void DrawConnection(MapNode mapNode, GameObject parentAux)
 		{
 			mapNode.isConnected = true;
-			if (isStarter)
+			if (canEnter)
 				isConnected = true;
 
 			float lineWidth = 10f;
@@ -112,7 +112,7 @@ namespace GMTK
 			resp.pos = pos;
 			resp.id = id;
 			resp.type = type;
-			resp.isStarter = isStarter;
+			resp.canEnter = canEnter;
 
 			resp.connections = new int[connectedNodes.Count];
 			for (int i = 0; i < connectedNodes.Count; i++)
@@ -125,16 +125,21 @@ namespace GMTK
 
 		public void Click()
 		{
+			if (!canEnter) return;
+			MapProgress.Instance.UpdateMovement(this);
+
 			switch (type)
 			{
 				case NodeTypes.Combat:
-					SceneManager.LoadScene("Main");
+					MapProgress.Instance.PrepareCombatData();
+					SceneManager.LoadScene("Game");
 					break;
 				case NodeTypes.Elite:
 					print("TODO: Click on Elite.");
 					break;
 				case NodeTypes.Shop:
-					SceneManager.LoadScene("CharacterSelector");
+					print("TODO: Click on Shop.");
+					// SceneManager.LoadScene("CharacterSelector");
 					break;
 				case NodeTypes.Boss:
 					print("TODO: Click on Boss.");

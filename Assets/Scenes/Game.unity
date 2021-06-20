@@ -1212,7 +1212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95eabe1cfe36ede40ada049a16d68f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfo: {fileID: 11400000, guid: c8808845931b30f4f97b394fcc1fc567, type: 2}
   enemyPrefab: {fileID: 4298428781574337982, guid: b9a4c8343af4e7f4f9012f87a184d1f8, type: 3}
   spawnCadence: 2
   spawnEffect: {fileID: 811778600181841873, guid: 12d6c869efe6660498b33c5b87a8653d, type: 3}

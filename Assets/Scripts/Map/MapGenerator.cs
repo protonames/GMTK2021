@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-namespace GMTK
+namespace GMTK.Levels
 {
 	public class MapGenerator : MonoBehaviour
 	{
@@ -17,19 +17,40 @@ namespace GMTK
 		float yRange = 200f;
 		float xSpacing = 100f;
 
+		bool initiated = false;
+		bool frameSkip = true;
+
 		// Start is called before the first frame update
 		void Start()
 		{
-			// GenerateMap();
+
 		}
 
 		// Update is called once per frame
 		void Update()
 		{
+			if (frameSkip)
+			{
+				frameSkip = false;
+				return;
+			}
+			if (initiated) return;
+			if (MapProgress.Instance == null) return;
+			initiated = true;
+			MapProgress.Instance.LoadMap();
 
+			// if (MapProgress.Instance.mapStructure != null)
+			// {
+			// 	MapProgress.Instance.mapStructure = GenerateMap(MapProgress.Instance);
+			// }
+			// else
+			// {
+			// 	GenerateMap(MapProgress.Instance, MapProgress.Instance.mapStructure);
+			// }
+			// initiated = true;
 		}
 
-		public MapNodeData[] GenerateMap()
+		public MapNodeData[] GenerateMap(MapProgress mapProgress)
 		{
 			float midX = 600;
 			float ceilingY = 600;
@@ -66,7 +87,7 @@ namespace GMTK
 					var posY = ceilingY - level * incrementY + Random.Range(-50, 0);
 					MapNode nodeAux = CreateNode(posX, posY);
 					if (level == totalLevel - 1)
-						nodeAux.isStarter = true;
+						nodeAux.canEnter = true;
 					nodeAux.id = id;
 					id++;
 					nodesCamadas.Add(nodeAux);
@@ -114,6 +135,7 @@ namespace GMTK
 				for (int j = 0; j < currentLayer.Count; j++)
 				{
 					currentLayer[j].SetUp(true);
+
 				}
 			}
 
@@ -139,7 +161,7 @@ namespace GMTK
 			return saverAux;
 		}
 
-		public void GenerateMap(MapNodeData[] savedStructure)
+		public void GenerateMap(MapProgress mapProgress, MapNodeData[] savedStructure)
 		{
 			MapNode[] nodes = new MapNode[savedStructure.Length];
 			for (int i = 0; i < savedStructure.Length; i++)
@@ -147,7 +169,8 @@ namespace GMTK
 				Vector3 position = savedStructure[i].pos;
 				MapNode nodeAux = CreateNode(position.x, position.y);
 				nodeAux.type = savedStructure[i].type;
-				nodeAux.isStarter = savedStructure[i].isStarter;
+				nodeAux.canEnter = savedStructure[i].canEnter;
+				nodeAux.id = savedStructure[i].id;
 				nodes[i] = nodeAux;
 			}
 

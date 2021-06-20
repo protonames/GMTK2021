@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 32
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be97ae4e92840e0418b05f2efc4ba897, type: 3}
+  m_Name: Level Holder
+  m_EditorClassIdentifier: 
+  EasyLevels:
+  - {fileID: 11400000, guid: 8858f9058dfdbba4784cef590b4fa812, type: 2}
+  MediumLevels: []
+  HardLevels: []
+  EliteLevels: []
+  BossLevels: []

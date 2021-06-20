@@ -7,5 +7,10 @@ namespace GMTK.Info
 	public class PartyInfo : ScriptableObject
 	{
 		public List<CharacterInfo> Party = new List<CharacterInfo>();
+
+		private void OnEnable()
+		{
+			hideFlags = HideFlags.DontUnloadUnusedAsset; // TODO isso é armengue, melhor criar um objeto que salva os dados todos entre as cenas, já vamos precisar para o mapa e o dinheiro msm
+		}
 	}
 }

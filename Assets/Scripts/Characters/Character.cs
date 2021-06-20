@@ -26,6 +26,7 @@ namespace GMTK.Characters
 		public event Action OnDiedEvent;
 		public GraphicsContainer GraphicsContainer;
 		private Health health;
+		private AttackController attackController;
 
 		private void Awake()
 		{
@@ -49,8 +50,14 @@ namespace GMTK.Characters
 			GraphicsContainer.WeaponSpriteRenderer.sprite = info.WeaponSprite;
 			health.SetHealth(info.Health);
 
-
 			CancelInvoke(nameof(TriggerAttack));
+
+			if (info.weaponData != null)
+			{
+				if (attackController != null) Destroy(attackController.gameObject);
+				attackController = info.weaponData.ReturnController(this);
+			}
+
 			InvokeRepeating(nameof(TriggerAttack), 1f / info.AttackSpeed, 1f / info.AttackSpeed);
 		}
 
@@ -67,6 +74,9 @@ namespace GMTK.Characters
 
 		private void TriggerAttack()
 		{
+			if (attackController != null)
+				attackController.Activate(Target);
+
 			if (!Target)
 			{
 				return;
@@ -84,23 +94,24 @@ namespace GMTK.Characters
 				.From(Vector3.one * 1.25f)
 				.SetEase(Ease.OutBounce);
 
+			RotateFirePointTowardsTarget();
+
+			// Attack();
+		}
+
+		private void Attack()
+		{
 			Transform weaponTransform;
 
 			(weaponTransform = GraphicsContainer.WeaponSpriteRenderer.transform).DOScale(Vector3.one, .3f)
 				.From(Vector3.one * 1.25f)
 				.SetEase(Ease.OutBounce);
 
-			Instantiate(muzzlePrefab, weaponTransform.position, Quaternion.identity);
-			RotateFirePointTowardsTarget();
-			Attack();
-		}
-
-		private void Attack()
-		{
 			Health targetHealth = Target.GetComponent<Health>();
 
 			if (Info.projectile != null)
 			{
+				Instantiate(muzzlePrefab, weaponTransform.position, Quaternion.identity);
 				Info.LaunchProjectile(firePoint, targetHealth);
 			}
 			else
@@ -108,6 +119,15 @@ namespace GMTK.Characters
 				targetHealth.TakeDamage(Info.Damage);
 				if (Info.specialEffect != null) Info.specialEffect.Activate();
 			}
+		}
+
+		public void AttackAnimation()
+		{
+			Transform weaponTransform;
+
+			(weaponTransform = GraphicsContainer.WeaponSpriteRenderer.transform).DOScale(Vector3.one, .3f)
+				.From(Vector3.one * 1.25f)
+				.SetEase(Ease.OutBounce);
 		}
 
 		private void Die()
