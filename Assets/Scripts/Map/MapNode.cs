@@ -21,12 +21,7 @@ namespace GMTK.Levels
 		public NodeTypes type = NodeTypes.Combat;
 		public Vector3 pos;
 		public int id;
-
-		// Update is called once per frame
-		void Update()
-		{
-
-		}
+		public int layer;
 
 		public void SetConnections(List<MapNode> upperNodes, GameObject parentAux)
 		{
@@ -106,7 +101,8 @@ namespace GMTK.Levels
 			debugText.text = type.ToString();
 		}
 
-		public void SetUp(NodeTypes forcedType) {
+		public void SetUp(NodeTypes forcedType)
+		{
 			type = forcedType;
 			Button buttonAux = Instantiate(buttonPrefab, transform);
 			buttonAux.onClick.AddListener(Click);
@@ -121,6 +117,7 @@ namespace GMTK.Levels
 			resp.id = id;
 			resp.type = type;
 			resp.canEnter = canEnter;
+			resp.layer = layer;
 
 			resp.connections = new int[connectedNodes.Count];
 			for (int i = 0; i < connectedNodes.Count; i++)
@@ -139,17 +136,19 @@ namespace GMTK.Levels
 			switch (type)
 			{
 				case NodeTypes.Combat:
-					MapProgress.Instance.PrepareCombatData();
+					MapProgress.Instance.PrepareCombatData(NodeTypes.Combat, layer);
 					SceneManager.LoadScene("Game");
 					break;
 				case NodeTypes.Elite:
-					print("TODO: Click on Elite.");
+					MapProgress.Instance.PrepareCombatData(NodeTypes.Elite);
+					SceneManager.LoadScene("Game");
 					break;
 				case NodeTypes.Shop:
 					SceneManager.LoadScene("Shop");
 					break;
 				case NodeTypes.Boss:
-					print("TODO: Click on Boss.");
+					MapProgress.Instance.PrepareCombatData(NodeTypes.Boss);
+					SceneManager.LoadScene("Game");
 					break;
 			}
 		}

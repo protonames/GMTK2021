@@ -81,10 +81,31 @@ namespace GMTK.Levels
 			}
 		}
 
-		public void PrepareCombatData()
+		public void PrepareCombatData(NodeTypes types, int layer = 1)
 		{
-			var level = LevelHolder.EasyLevels[Random.Range(0, LevelHolder.EasyLevels.Length)];
-			EnemiesToSpawn = level.GetRoll();
+			LevelData room;
+			switch (types)
+			{
+				case NodeTypes.Combat:
+					print("Layer: " + layer);
+					if (layer < 3)
+						room = LevelHolder.EasyLevels[Random.Range(0, LevelHolder.EasyLevels.Length)];
+					else if (layer < 5)
+						room = LevelHolder.MediumLevels[Random.Range(0, LevelHolder.MediumLevels.Length)];
+					else
+						room = LevelHolder.HardLevels[Random.Range(0, LevelHolder.HardLevels.Length)];
+
+					EnemiesToSpawn = room.GetRoll();
+					break;
+				case NodeTypes.Elite:
+					room = LevelHolder.EliteLevels[Random.Range(0, LevelHolder.EliteLevels.Length)];
+					EnemiesToSpawn = room.GetRoll();
+					break;
+				case NodeTypes.Boss:
+					room = LevelHolder.BossLevels[Random.Range(0, LevelHolder.BossLevels.Length)];
+					EnemiesToSpawn = room.GetRoll();
+					break;
+			}
 		}
 
 		public void ReturnToMap()

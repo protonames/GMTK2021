@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6b59f688f0e19842a07448e8e930c76, type: 3}
-  m_Name: LevelEasy 1
+  m_Name: LevelMedium 1
   m_EditorClassIdentifier: 
   ObligatorySpawns:
   - {fileID: 3646757936914097920, guid: b9a4c8343af4e7f4f9012f87a184d1f8, type: 3}
   OpcionalSpawns:
   - {fileID: 3646757936914097920, guid: b9a4c8343af4e7f4f9012f87a184d1f8, type: 3}
-  BuyPoints: 5
+  BuyPoints: 10

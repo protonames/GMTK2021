@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57164f9cae5e4348949155f88676533d, type: 3}
   m_Name: Musket
   m_EditorClassIdentifier: 
+  AttackRange: 10
+  Cooldown: 1
   Amount: 0
   AngleSpread: 0
   AreaSize: 5
