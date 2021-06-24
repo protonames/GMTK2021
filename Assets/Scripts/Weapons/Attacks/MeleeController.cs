@@ -8,7 +8,10 @@ namespace GMTK.Weapons
 {
 	public class MeleeController : AttackController
 	{
+
+		[SerializeField] private bool isCleave = true;
 		[SerializeField] private CleaveArea cleavePrefab;
+
 
 		public override void SetUp(Character character, WeaponData weaponData)
 		{
@@ -17,19 +20,40 @@ namespace GMTK.Weapons
 
 		public override void Activate(Transform target)
 		{
+			// TODO Mudar essa aquisição de alvo
 			if (!target) return;
+
+			float range = this.weaponData.AttackRange;
+
+			float distanceToTarget = Vector2.Distance(target.position, transform.position);
+
+			if (distanceToTarget > range)
+			{
+				return;
+			}
 
 			character.AttackAnimation();
 
+			if (!isCleave)
+			{
+				Health targetHealth = target.GetComponent<Health>();
+				targetHealth.TakeDamage(character.Info.Damage);
+				return;
+			}
+
 			Vector3 dir = target.transform.position - transform.position;
 			dir = Vector3.Normalize(dir);
-			// Debug.DrawRay(transform.position, dir, Color.blue, 5f);
-			CleaveArea cleave = Instantiate(cleavePrefab, transform.position, Quaternion.identity, transform);
-			List<Enemy> enemies = cleave.GetInArea(dir);
 
-			foreach (var enemy in enemies)
+			CleaveArea cleave = Instantiate(cleavePrefab, transform.position, Quaternion.identity, transform);
+			List<Character> targets = cleave.GetInArea(dir);
+
+			bool isEnemy = GetComponentInParent<Enemy>() != null;
+			foreach (var possibleTarget in targets)
 			{
-				Health targetHealth = enemy.GetComponent<Health>();
+				bool isTargetEnemy = possibleTarget.GetComponent<Enemy>() != null;
+				if ((isEnemy && isTargetEnemy) || (!isEnemy && !isTargetEnemy)) continue;
+
+				Health targetHealth = possibleTarget.GetComponent<Health>();
 				targetHealth.TakeDamage(character.Info.Damage);
 			}
 		}

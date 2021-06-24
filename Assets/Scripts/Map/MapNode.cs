@@ -85,7 +85,7 @@ namespace GMTK.Levels
 			line.SetAsFirstSibling();
 		}
 
-		public void SetUp(bool rollForMe)
+		public void SetUp(bool rollForMe = false)
 		{
 			if (rollForMe && Random.Range(0, 3) == 0)
 			{
@@ -100,6 +100,14 @@ namespace GMTK.Levels
 				type = prepareToRoll[Random.Range(0, prepareToRoll.Count)];
 			}
 
+			Button buttonAux = Instantiate(buttonPrefab, transform);
+			buttonAux.onClick.AddListener(Click);
+			var debugText = buttonAux.GetComponentInChildren<TMP_Text>();
+			debugText.text = type.ToString();
+		}
+
+		public void SetUp(NodeTypes forcedType) {
+			type = forcedType;
 			Button buttonAux = Instantiate(buttonPrefab, transform);
 			buttonAux.onClick.AddListener(Click);
 			var debugText = buttonAux.GetComponentInChildren<TMP_Text>();
@@ -138,8 +146,7 @@ namespace GMTK.Levels
 					print("TODO: Click on Elite.");
 					break;
 				case NodeTypes.Shop:
-					print("TODO: Click on Shop.");
-					// SceneManager.LoadScene("CharacterSelector");
+					SceneManager.LoadScene("Shop");
 					break;
 				case NodeTypes.Boss:
 					print("TODO: Click on Boss.");

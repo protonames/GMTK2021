@@ -5,6 +5,10 @@ namespace GMTK.Weapons
 	[CreateAssetMenu(fileName = "New Weapon", menuName = "Data/Weapon", order = 0)]
 	public class WeaponData : ScriptableObject
 	{
+		[Header("[All]")]
+		public float AttackRange = 1f;
+		public float Cooldown = 1f;
+
 		public Projectile Projectile => Projectiles[Random.Range(0, Projectiles.Length)];
 
 		[Header("[PROJECTILE]")]

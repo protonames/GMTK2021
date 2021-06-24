@@ -18,6 +18,8 @@ namespace GMTK.Levels
 
 		public List<Enemy> EnemiesToSpawn;
 
+		public int CurrentGold = 50;
+
 		// Start is called before the first frame update
 		void Start()
 		{

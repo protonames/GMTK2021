@@ -58,7 +58,7 @@ namespace GMTK.Characters
 				attackController = info.weaponData.ReturnController(this);
 			}
 
-			InvokeRepeating(nameof(TriggerAttack), 1f / info.AttackSpeed, 1f / info.AttackSpeed);
+			// InvokeRepeating(nameof(TriggerAttack), 1f / info.AttackSpeed, 1f / info.AttackSpeed);
 		}
 
 		private void RotateFirePointTowardsTarget()

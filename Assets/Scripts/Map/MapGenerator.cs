@@ -141,7 +141,8 @@ namespace GMTK.Levels
 
 			for (int j = 0; j < matrix[matrix.Count - 1].Count; j++)
 			{
-				matrix[matrix.Count - 1][j].SetUp(false);
+				// matrix[matrix.Count - 1][j].SetUp(false);
+				matrix[matrix.Count - 1][j].SetUp(NodeTypes.Shop); // TODO Debug
 			}
 
 			MapNodeData[] saverAux = new MapNodeData[id];

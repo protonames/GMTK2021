@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1190361435279799847}
   - component: {fileID: 6369058912418959822}
   m_Layer: 0
-  m_Name: MeleeAttack
+  m_Name: MeleeAttackSingleTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,10 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66328c27b30593f4cbb0ffc6157fc8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLayers:
-  - serializedVersion: 2
-    m_Bits: 64
   weaponData: {fileID: 0}
   character: {fileID: 0}
-  isCleave: 1
-  cleavePrefab: {fileID: 1685938613462484440, guid: 06efde8e98e45a94fa3fbe39ffd7f5ce, type: 3}
+  isCleave: 0
+  cleavePrefab: {fileID: 0}
