@@ -2,7 +2,7 @@ using GMTK.Characters;
 using GMTK.Utilities;
 using PNLib.Utility;
 using UnityEngine;
-using CharacterInfo = GMTK.Info.CharacterInfo;
+using ClassInfo = GMTK.Info.ClassInfo;
 
 namespace GMTK.Enemies
 {
@@ -11,7 +11,7 @@ namespace GMTK.Enemies
 		public int EnemyCost = 1;
 
 		[SerializeField]
-		private CharacterInfo enemyInfo;
+		private ClassInfo enemyInfo;
 
 		[SerializeField]
 		private float moveSpeed = 4f;

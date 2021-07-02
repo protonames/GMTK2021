@@ -22,3 +22,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4ec31a07b54b0394889cf904e847b981, type: 2}
   BossLevels:
   - {fileID: 11400000, guid: 3079781ee2d99f1488b304f60cd5d808, type: 2}
+  ShopLevels:
+  - {fileID: 11400000, guid: a0813d4f6b02a0c4a9bc9369c49ade5c, type: 2}

@@ -19,10 +19,13 @@ namespace GMTK.Weapons
 		{
 			if (!target) return;
 
+			Character.AttackAnimation();
+			Character.RotateFirePointTowardsTarget(target);
+
 			Health targetHealth = target.GetComponent<Health>();
 
 			Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity, null);
-			projectile.Launch(targetHealth, true, weaponData.Speed, character.Info.Damage); // TODO Pegar o character.isPlayer para playerProjectile
+			projectile.Launch(targetHealth, true, WeaponData.Speed, Character.Info.Damage); // TODO Pegar o character.isPlayer para playerProjectile
 		}
 	}
 }

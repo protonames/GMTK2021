@@ -1,10 +1,11 @@
 using UnityEngine;
 using GMTK.Weapons;
 using GMTK.Characters;
+
 namespace GMTK.Info
 {
 	[CreateAssetMenu(fileName = "New Character", menuName = "Info/Character")]
-	public class CharacterInfo : ScriptableObject
+	public class ClassInfo : ScriptableObject
 	{
 		public int GoldCost = 3;
 		public float AttackRadius = 1;

@@ -7,7 +7,6 @@ using GMTK.Utilities;
 using PNLib.Utility;
 using UnityEngine;
 using UnityEngine.UI;
-using CharacterInfo = GMTK.Info.CharacterInfo;
 
 namespace GMTK.UI
 {
@@ -20,7 +19,7 @@ namespace GMTK.UI
 		private Transform characterOptionsContainer;
 
 		[SerializeField]
-		private CharacterInfo[] charactersInfo;
+		private ClassInfo[] charactersInfo;
 
 		[SerializeField]
 		private AudioClip clickSFX;
@@ -29,7 +28,7 @@ namespace GMTK.UI
 		private AudioClip confirmClickSFX;
 
 		[SerializeField]
-		private CharacterInfo emptyCharacter;
+		private ClassInfo emptyCharacter;
 
 		[SerializeField]
 		private HoverDisplay hoverDisplay;
@@ -101,14 +100,14 @@ namespace GMTK.UI
 			display.Info = null;
 		}
 
-		private void CreateAllCharacters(CharacterInfo[] characters)
+		private void CreateAllCharacters(ClassInfo[] characters)
 		{
 			foreach (Transform child in characterOptionsContainer)
 			{
 				Destroy(child.gameObject);
 			}
 
-			foreach (CharacterInfo info in characters)
+			foreach (ClassInfo info in characters)
 			{
 				CharacterInfoDisplay display = Instantiate(characterInfoDisplayPrefab, characterOptionsContainer);
 				display.hover = hoverDisplay;
@@ -118,7 +117,7 @@ namespace GMTK.UI
 			}
 		}
 
-		private void TryAddToParty(CharacterInfo info)
+		private void TryAddToParty(ClassInfo info)
 		{
 			foreach (CharacterInfoDisplay partySlot in partyDisplay)
 			{

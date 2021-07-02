@@ -6,7 +6,7 @@ using GMTK.Info;
 using GMTK.Utilities;
 using PNLib.Utility;
 using UnityEngine;
-using CharacterInfo = GMTK.Info.CharacterInfo;
+using ClassInfo = GMTK.Info.ClassInfo;
 
 namespace GMTK.Controllers
 {
@@ -19,7 +19,7 @@ namespace GMTK.Controllers
 		private Character characterPrefab;
 
 		[SerializeField]
-		private CharacterInfo kingInfo;
+		private ClassInfo kingInfo;
 
 		[SerializeField]
 		private float moveSpeed = 6f;
@@ -36,6 +36,8 @@ namespace GMTK.Controllers
 		private readonly List<Character> activeCharacters = new List<Character>();
 		private Character main;
 
+		public Vector3 PartyLookPoint = new Vector3();
+
 		private void Awake()
 		{
 			main = GetComponent<Character>();
@@ -48,7 +50,7 @@ namespace GMTK.Controllers
 
 			for (int i = 0; i < partyInfo.Party.Count; i++)
 			{
-				CharacterInfo info = partyInfo.Party[i];
+				ClassInfo info = partyInfo.Party[i];
 
 				if (info == null)
 				{
@@ -64,6 +66,7 @@ namespace GMTK.Controllers
 					transform
 				);
 
+				character.Party = this;
 				character.Set(info);
 				activeCharacters.Add(character);
 
@@ -160,21 +163,23 @@ namespace GMTK.Controllers
 			scale.x = moveDirection.x >= 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
 			main.GraphicsContainer.transform.localScale = scale;
 
-			foreach (Character character in activeCharacters)
-			{
-				if (character.Target)
-				{
-					moveDirection = character.transform.position.DirectionTo(character.Target.position);
-				}
-				else
-				{
-					moveDirection = transform.position.DirectionTo(mouseWorldPosition);
-				}
+			PartyLookPoint = transform.position.DirectionTo(mouseWorldPosition);
 
-				scale = character.GraphicsContainer.transform.localScale;
-				scale.x = moveDirection.x >= 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
-				character.GraphicsContainer.transform.localScale = scale;
-			}
+			// foreach (Character character in activeCharacters)
+			// {
+			// 	if (character.Target)
+			// 	{
+			// 		moveDirection = character.transform.position.DirectionTo(character.Target.position);
+			// 	}
+			// 	else
+			// 	{
+			// 		moveDirection = transform.position.DirectionTo(mouseWorldPosition);
+			// 	}
+
+			// 	scale = character.GraphicsContainer.transform.localScale;
+			// 	scale.x = moveDirection.x >= 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
+			// 	character.GraphicsContainer.transform.localScale = scale;
+			// }
 		}
 	}
 }

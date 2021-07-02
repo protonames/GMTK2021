@@ -9,20 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2259ac22f0bfdc4198bbb9837ae0474, type: 3}
+  m_Script: {fileID: 11500000, guid: d16b59cd13617934d9c829920737afa3, type: 3}
   m_Name: Cannoneer
   m_EditorClassIdentifier: 
-  AttackRadius: 10
+  GoldCost: 3
+  AttackRadius: 1
   AttackSpeed: 1
   BodySprite: {fileID: 4071960801664167416, guid: 0eaad3cf2b9be6746bb63448036956a6, type: 3}
-  Damage: 3
+  Damage: 4
   Description: 
   Health: 10
-  MainColor: {r: 0.32941177, g: 0.078431375, b: 0.10588236, a: 1}
+  MainColor: {r: 0, g: 0, b: 0, a: 0}
   Sinergies:
-  - {fileID: 11400000, guid: 061df490497d4dc43a37c468e2c85327, type: 2}
   - {fileID: 11400000, guid: 2ddac3565edf2c949bf87ecbed9ff064, type: 2}
-  WeaponSprite: {fileID: 6263951104447468833, guid: 7d729f23e7a37b349aabfcf1d4b30760, type: 3}
-  projectile: {fileID: 300994145775445142, guid: d04cb8e1847b1674ebb7d5c7f1bb119d, type: 3}
+  - {fileID: 11400000, guid: 701636f74a7d0d7479466f90ca2a0478, type: 2}
+  WeaponSprite: {fileID: 7422159438396279445, guid: 7d729f23e7a37b349aabfcf1d4b30760, type: 3}
+  projectile: {fileID: 0}
   specialEffect: {fileID: 0}
-  weaponData: {fileID: 11400000, guid: 4ca187ea16dfc43459cbf1c1b52e76c5, type: 2}
+  weaponData: {fileID: 11400000, guid: 813c44267db47804a8301b084c6754f5, type: 2}

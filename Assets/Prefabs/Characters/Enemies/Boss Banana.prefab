@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyCost: 10
-  enemyInfo: {fileID: 11400000, guid: 281f7cb5b94f26c47ba9232f292819b8, type: 2}
+  enemyInfo: {fileID: 11400000, guid: c9e4447438ddfe749967684482e9f51b, type: 2}
   moveSpeed: 1
   playerLayer:
     serializedVersion: 2

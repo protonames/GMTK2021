@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Musket
   m_EditorClassIdentifier: 
   AttackRange: 10
-  Cooldown: 1
+  Cooldown: 3
   Amount: 0
   AngleSpread: 0
   AreaSize: 5

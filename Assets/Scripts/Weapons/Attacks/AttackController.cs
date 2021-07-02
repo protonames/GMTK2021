@@ -9,8 +9,9 @@ namespace GMTK.Weapons
 {
 	public abstract class AttackController : MonoBehaviour
 	{
-		public WeaponData weaponData;
-		public Character character;
+		public WeaponData WeaponData;
+		public Character Character;
+		public Character Target;
 
 		private float cooldown;
 		private float attackRange;
@@ -18,22 +19,23 @@ namespace GMTK.Weapons
 
 		public virtual void SetUp(Character character, WeaponData weaponData)
 		{
-			this.character = character;
-			this.weaponData = weaponData;
+			this.Character = character;
+			this.WeaponData = weaponData;
 			SetTargetLayer();
 			LoadData();
+			StartCoroutine(FindTargetCoroutine());
 			StartCoroutine(CooldownCoroutine());
 		}
 
 		protected virtual void LoadData()
 		{
-			this.cooldown = this.weaponData.Cooldown;
-			this.attackRange = this.weaponData.AttackRange;
+			this.cooldown = this.WeaponData.Cooldown;
+			this.attackRange = this.WeaponData.AttackRange;
 		}
 
 		protected virtual IEnumerator CooldownCoroutine()
 		{
-			while (true)
+			for (; ; )
 			{
 				yield return StartCoroutine(CanAttackCoroutine());
 				yield return new WaitForSeconds(this.cooldown);
@@ -44,11 +46,20 @@ namespace GMTK.Weapons
 		{
 			for (; ; )
 			{
-				if (FindTargetByLayer(out Character target))
+				if (Target != null)
 				{
-					Activate(target.gameObject.transform);
+					Activate(Target.gameObject.transform);
 					break;
 				}
+				yield return new WaitForSeconds(0.1f);
+			}
+		}
+
+		protected virtual IEnumerator FindTargetCoroutine()
+		{
+			for (; ; )
+			{
+				if (!FindTargetByLayer(out Target)) Target = null;
 				yield return new WaitForSeconds(0.1f);
 			}
 		}

@@ -12,6 +12,7 @@ namespace GMTK.Levels
 		public LevelData[] HardLevels;
 		public LevelData[] EliteLevels;
 		public LevelData[] BossLevels;
+		public LevelShopData[] ShopLevels;
 
 		private void OnEnable()
 		{

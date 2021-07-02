@@ -3,22 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using GMTK.Enemies;
+using GMTK.Info;
 
 namespace GMTK.Levels
 {
 	public class MapProgress : MonoBehaviour
 	{
 		public LevelHolder LevelHolder;
-
 		public MapNodeData[] mapStructure;
-
-		bool initialized;
-
 		public static MapProgress Instance;
-
 		public List<Enemy> EnemiesToSpawn;
-
+		public List<ClassInfo> ClassesToShop;
+		public NodeTypes CurrentRoomType;
 		public int CurrentGold = 50;
+		public PartyInfo partyInfo;
 
 		// Start is called before the first frame update
 		void Start()
@@ -32,17 +30,6 @@ namespace GMTK.Levels
 			{
 				Destroy(gameObject);
 			}
-		}
-
-		// Update is called once per frame
-		void Update()
-		{
-			if (Input.GetKeyDown(KeyCode.B)) ReturnToMap();
-			// if (Input.GetKeyDown(KeyCode.L)) LoadMap();
-
-			// if (initialized) return;
-			// LoadMap();
-			// initialized = true;
 		}
 
 		public void LoadMap()
@@ -81,13 +68,15 @@ namespace GMTK.Levels
 			}
 		}
 
-		public void PrepareCombatData(NodeTypes types, int layer = 1)
+		public void PrepareRoomData(MapNode node, NodeTypes type, int layer)
 		{
+			CurrentRoomType = type;
+			UpdateMovement(node);
+
 			LevelData room;
-			switch (types)
+			switch (type)
 			{
 				case NodeTypes.Combat:
-					print("Layer: " + layer);
 					if (layer < 3)
 						room = LevelHolder.EasyLevels[Random.Range(0, LevelHolder.EasyLevels.Length)];
 					else if (layer < 5)
@@ -96,14 +85,22 @@ namespace GMTK.Levels
 						room = LevelHolder.HardLevels[Random.Range(0, LevelHolder.HardLevels.Length)];
 
 					EnemiesToSpawn = room.GetRoll();
+					SceneManager.LoadScene("Game");
 					break;
 				case NodeTypes.Elite:
 					room = LevelHolder.EliteLevels[Random.Range(0, LevelHolder.EliteLevels.Length)];
 					EnemiesToSpawn = room.GetRoll();
+					SceneManager.LoadScene("Game");
 					break;
 				case NodeTypes.Boss:
 					room = LevelHolder.BossLevels[Random.Range(0, LevelHolder.BossLevels.Length)];
 					EnemiesToSpawn = room.GetRoll();
+					SceneManager.LoadScene("Game");
+					break;
+				case NodeTypes.Shop:
+					var shop = LevelHolder.ShopLevels[Random.Range(0, LevelHolder.ShopLevels.Length)];
+					ClassesToShop = shop.GetRoll(partyInfo.Party);
+					SceneManager.LoadScene("Shop");
 					break;
 			}
 		}

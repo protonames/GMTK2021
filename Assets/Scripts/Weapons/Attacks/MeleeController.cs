@@ -23,7 +23,7 @@ namespace GMTK.Weapons
 			// TODO Mudar essa aquisição de alvo
 			if (!target) return;
 
-			float range = this.weaponData.AttackRange;
+			float range = this.WeaponData.AttackRange;
 
 			float distanceToTarget = Vector2.Distance(target.position, transform.position);
 
@@ -32,12 +32,13 @@ namespace GMTK.Weapons
 				return;
 			}
 
-			character.AttackAnimation();
+			Character.AttackAnimation();
+			Character.RotateFirePointTowardsTarget(target);
 
 			if (!isCleave)
 			{
 				Health targetHealth = target.GetComponent<Health>();
-				targetHealth.TakeDamage(character.Info.Damage);
+				targetHealth.TakeDamage(Character.Info.Damage);
 				return;
 			}
 
@@ -54,7 +55,7 @@ namespace GMTK.Weapons
 				if ((isEnemy && isTargetEnemy) || (!isEnemy && !isTargetEnemy)) continue;
 
 				Health targetHealth = possibleTarget.GetComponent<Health>();
-				targetHealth.TakeDamage(character.Info.Damage);
+				targetHealth.TakeDamage(Character.Info.Damage);
 			}
 		}
 	}

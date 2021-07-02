@@ -2,7 +2,7 @@
 using GMTK.Utilities;
 using TMPro;
 using UnityEngine;
-using CharacterInfo = GMTK.Info.CharacterInfo;
+using ClassInfo = GMTK.Info.ClassInfo;
 
 namespace GMTK.UI
 {
@@ -20,7 +20,7 @@ namespace GMTK.UI
 		[SerializeField]
 		private GameObject hoverPanel;
 
-		public void DisplayCharacter(CharacterInfo info)
+		public void DisplayCharacter(ClassInfo info)
 		{
 			if (!info)
 			{

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using CharacterInfo = GMTK.Info.CharacterInfo;
+using GMTK.Info;
 
 namespace GMTK.UI
 {
@@ -10,7 +10,7 @@ namespace GMTK.UI
 		[SerializeField]
 		private Image characterImage;
 
-		public CharacterInfo Info { get; set; }
+		public ClassInfo Info { get; set; }
 
 		[SerializeField]
 		private TMP_Text nameText;
@@ -21,7 +21,7 @@ namespace GMTK.UI
 		[SerializeField]
 		public HoverDisplay hover;
 
-		public void Display(CharacterInfo info)
+		public void Display(ClassInfo info)
 		{
 			Info = info;
 

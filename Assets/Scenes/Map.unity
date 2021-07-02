@@ -256,6 +256,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelHolder: {fileID: 11400000, guid: 593e9d6b63c6e7446a22bafe93279dd2, type: 2}
   EnemiesToSpawn: []
+  ClassesToShop: []
+  CurrentRoomType: 0
+  CurrentGold: 50
+  partyInfo: {fileID: 11400000, guid: eb355032c045c494cb7f712c908e455e, type: 2}
 --- !u!4 &390560961
 Transform:
   m_ObjectHideFlags: 0

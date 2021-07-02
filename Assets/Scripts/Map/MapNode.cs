@@ -131,26 +131,7 @@ namespace GMTK.Levels
 		public void Click()
 		{
 			if (!canEnter) return;
-			MapProgress.Instance.UpdateMovement(this);
-
-			switch (type)
-			{
-				case NodeTypes.Combat:
-					MapProgress.Instance.PrepareCombatData(NodeTypes.Combat, layer);
-					SceneManager.LoadScene("Game");
-					break;
-				case NodeTypes.Elite:
-					MapProgress.Instance.PrepareCombatData(NodeTypes.Elite);
-					SceneManager.LoadScene("Game");
-					break;
-				case NodeTypes.Shop:
-					SceneManager.LoadScene("Shop");
-					break;
-				case NodeTypes.Boss:
-					MapProgress.Instance.PrepareCombatData(NodeTypes.Boss);
-					SceneManager.LoadScene("Game");
-					break;
-			}
+			MapProgress.Instance.PrepareRoomData(this, type, layer);
 		}
 	}
 

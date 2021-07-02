@@ -9,7 +9,7 @@ using GMTK.Utilities;
 using PNLib.Utility;
 using UnityEngine;
 using UnityEngine.UI;
-using CharacterInfo = GMTK.Info.CharacterInfo;
+using ClassInfo = GMTK.Info.ClassInfo;
 
 namespace GMTK.Shop
 {
@@ -22,7 +22,7 @@ namespace GMTK.Shop
 		private Transform characterOptionsContainer;
 
 		[SerializeField]
-		private CharacterInfo[] charactersInfo;
+		private List<ClassInfo> charactersInfo;
 
 		[SerializeField]
 		private AudioClip clickSFX;
@@ -31,7 +31,7 @@ namespace GMTK.Shop
 		private AudioClip confirmClickSFX;
 
 		[SerializeField]
-		private CharacterInfo emptyCharacter;
+		private ClassInfo emptyCharacter;
 
 		[SerializeField]
 		private HoverDisplay hoverDisplay;
@@ -60,6 +60,7 @@ namespace GMTK.Shop
 		private void Start()
 		{
 			mapProgress = MapProgress.Instance;
+			charactersInfo = mapProgress.ClassesToShop;
 
 
 			foreach (CharacterInfoDisplay display in partyDisplay)
@@ -68,6 +69,7 @@ namespace GMTK.Shop
 			}
 
 			DOTween.To(() => MusicManagerExtras.Volume, x => MusicManagerExtras.Volume = x, 0.0625f, 1f);
+
 
 			goldText.text = goldBaseText + mapProgress.CurrentGold;
 			InitiateParty();
@@ -131,14 +133,14 @@ namespace GMTK.Shop
 			display.Info = null;
 		}
 
-		private void CreateAllCharacters(CharacterInfo[] characters)
+		private void CreateAllCharacters(List<ClassInfo> characters)
 		{
 			foreach (Transform child in characterOptionsContainer)
 			{
 				Destroy(child.gameObject);
 			}
 
-			foreach (CharacterInfo info in characters)
+			foreach (ClassInfo info in characters)
 			{
 				CharacterInfoDisplay display = Instantiate(characterInfoDisplayPrefab, characterOptionsContainer);
 				display.hover = hoverDisplay;
@@ -171,7 +173,7 @@ namespace GMTK.Shop
 			UpdateSynergyDisplays();
 		}
 
-		private void TryAddToParty(CharacterInfo info)
+		private void TryAddToParty(ClassInfo info)
 		{
 			if (mapProgress.CurrentGold < info.GoldCost)
 				return;

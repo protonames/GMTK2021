@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4efee0be91481414b9dfdeb218b88489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfo: {fileID: 11400000, guid: c8808845931b30f4f97b394fcc1fc567, type: 2}
+  EnemyCost: 1
+  enemyInfo: {fileID: 11400000, guid: 5e868ec4ce3a3964ba03196b43898f0a, type: 2}
   moveSpeed: 1.5
   playerLayer:
     serializedVersion: 2

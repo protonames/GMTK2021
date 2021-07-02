@@ -9,10 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2259ac22f0bfdc4198bbb9837ae0474, type: 3}
-  m_Name: _Empty
+  m_Script: {fileID: 11500000, guid: d16b59cd13617934d9c829920737afa3, type: 3}
+  m_Name: _empty
   m_EditorClassIdentifier: 
+  GoldCost: 3
+  AttackRadius: 1
+  AttackSpeed: 1
   BodySprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  WeaponSprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  MainColor: {r: 1, g: 1, b: 1, a: 1}
+  Damage: 1
+  Description: 
+  Health: 10
+  MainColor: {r: 0, g: 0, b: 0, a: 0}
   Sinergies: []
+  WeaponSprite: {fileID: 0}
+  projectile: {fileID: 0}
+  specialEffect: {fileID: 0}
+  weaponData: {fileID: 0}
