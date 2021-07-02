@@ -43,6 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66328c27b30593f4cbb0ffc6157fc8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayers:
+  - serializedVersion: 2
+    m_Bits: 64
   weaponData: {fileID: 0}
   character: {fileID: 0}
+  isCleave: 1
   cleavePrefab: {fileID: 1685938613462484440, guid: 06efde8e98e45a94fa3fbe39ffd7f5ce, type: 3}

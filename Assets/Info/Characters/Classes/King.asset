@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16b59cd13617934d9c829920737afa3, type: 3}
+  m_Name: King
+  m_EditorClassIdentifier: 
+  GoldCost: 3
+  AttackRadius: 1
+  AttackSpeed: 1
+  BodySprite: {fileID: -6434815177628243973, guid: 0eaad3cf2b9be6746bb63448036956a6, type: 3}
+  Damage: 2
+  Description: 
+  Health: 20
+  MainColor: {r: 0, g: 0, b: 0, a: 0}
+  Sinergies: []
+  WeaponSprite: {fileID: -1600170238217010344, guid: 7d729f23e7a37b349aabfcf1d4b30760, type: 3}
+  projectile: {fileID: 0}
+  specialEffect: {fileID: 0}
+  weaponData: {fileID: 11400000, guid: ab93860c7cc627d4e8ff324f36c267f2, type: 2}

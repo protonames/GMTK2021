@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 3646757936914097920, guid: b9a4c8343af4e7f4f9012f87a184d1f8, type: 3}
   OpcionalSpawns:
   - {fileID: 3646757936914097920, guid: b9a4c8343af4e7f4f9012f87a184d1f8, type: 3}
-  BuyPoints: 10
+  BuyPoints: 5

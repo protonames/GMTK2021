@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07985dbd46448741bc86b8d1e5d2d2d, type: 3}
+  m_Name: CommonShop
+  m_EditorClassIdentifier: 
+  AllClasses:
+  - {fileID: 11400000, guid: 651033b149dc0fb48923c60625f8bef6, type: 2}
+  - {fileID: 11400000, guid: 0835c95090efcd44595c705a592e1b4b, type: 2}
+  - {fileID: 11400000, guid: d0412dd0ff377b44a9ef9823f4c6cb79, type: 2}
+  - {fileID: 11400000, guid: 8df352b6060b349459672aff68b194c6, type: 2}
+  - {fileID: 11400000, guid: 11e9912386e610d43b00430751b256e2, type: 2}
+  - {fileID: 11400000, guid: 99bd0e75a3d14554b84a2badbdaf6f48, type: 2}
+  - {fileID: 11400000, guid: 5204913fd6616b54187dce30d56fe3f7, type: 2}
+  - {fileID: 11400000, guid: 4834220255c7fd14884ac83691679791, type: 2}
+  - {fileID: 11400000, guid: 6ff9569d14d75604a88a97ad104a1cf0, type: 2}
+  - {fileID: 11400000, guid: ba62a1002a271c749a846a076af67366, type: 2}
+  ClassesPerShop: 5

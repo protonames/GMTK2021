@@ -89,6 +89,7 @@ namespace GMTK.Levels
 					if (level == totalLevel - 1)
 						nodeAux.canEnter = true;
 					nodeAux.id = id;
+					nodeAux.layer = totalLevel - level;
 					id++;
 					nodesCamadas.Add(nodeAux);
 				}
@@ -141,7 +142,7 @@ namespace GMTK.Levels
 
 			for (int j = 0; j < matrix[matrix.Count - 1].Count; j++)
 			{
-				matrix[matrix.Count - 1][j].SetUp(false);
+				matrix[matrix.Count - 1][j].SetUp(NodeTypes.Combat);
 			}
 
 			MapNodeData[] saverAux = new MapNodeData[id];
@@ -171,6 +172,7 @@ namespace GMTK.Levels
 				nodeAux.type = savedStructure[i].type;
 				nodeAux.canEnter = savedStructure[i].canEnter;
 				nodeAux.id = savedStructure[i].id;
+				nodeAux.layer = savedStructure[i].layer;
 				nodes[i] = nodeAux;
 			}
 

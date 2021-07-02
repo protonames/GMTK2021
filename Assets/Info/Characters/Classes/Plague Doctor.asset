@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16b59cd13617934d9c829920737afa3, type: 3}
+  m_Name: Plague Doctor
+  m_EditorClassIdentifier: 
+  GoldCost: 3
+  AttackRadius: 1
+  AttackSpeed: 1
+  BodySprite: {fileID: -2690681940826554475, guid: 0eaad3cf2b9be6746bb63448036956a6, type: 3}
+  Damage: 4
+  Description: 
+  Health: 10
+  MainColor: {r: 0, g: 0, b: 0, a: 0}
+  Sinergies:
+  - {fileID: 11400000, guid: 2ddac3565edf2c949bf87ecbed9ff064, type: 2}
+  - {fileID: 11400000, guid: 701636f74a7d0d7479466f90ca2a0478, type: 2}
+  WeaponSprite: {fileID: 3124405651329208738, guid: 7d729f23e7a37b349aabfcf1d4b30760, type: 3}
+  projectile: {fileID: 0}
+  specialEffect: {fileID: 0}
+  weaponData: {fileID: 11400000, guid: 813c44267db47804a8301b084c6754f5, type: 2}

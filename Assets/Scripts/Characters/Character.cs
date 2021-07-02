@@ -1,10 +1,11 @@
 using System;
 using DG.Tweening;
+using GMTK.Controllers;
 using GMTK.Utilities;
 using GMTK.Weapons;
 using PNLib.Utility;
 using UnityEngine;
-using CharacterInfo = GMTK.Info.CharacterInfo;
+using ClassInfo = GMTK.Info.ClassInfo;
 
 namespace GMTK.Characters
 {
@@ -17,7 +18,7 @@ namespace GMTK.Characters
 		[SerializeField]
 		private Transform firePoint;
 
-		public CharacterInfo Info { get; private set; }
+		public ClassInfo Info { get; private set; }
 
 		[SerializeField]
 		private Muzzle muzzlePrefab;
@@ -27,6 +28,8 @@ namespace GMTK.Characters
 		public GraphicsContainer GraphicsContainer;
 		private Health health;
 		private AttackController attackController;
+
+		public Player Party;
 
 		private void Awake()
 		{
@@ -43,14 +46,14 @@ namespace GMTK.Characters
 			health.OnDiedEvent -= Die;
 		}
 
-		public void Set(CharacterInfo info)
+		public void Set(ClassInfo info)
 		{
 			Info = info;
 			GraphicsContainer.BodySpriteRenderer.sprite = info.BodySprite;
 			GraphicsContainer.WeaponSpriteRenderer.sprite = info.WeaponSprite;
 			health.SetHealth(info.Health);
 
-			CancelInvoke(nameof(TriggerAttack));
+			// CancelInvoke(nameof(TriggerAttack));
 
 			if (info.weaponData != null)
 			{
@@ -58,68 +61,89 @@ namespace GMTK.Characters
 				attackController = info.weaponData.ReturnController(this);
 			}
 
-			InvokeRepeating(nameof(TriggerAttack), 1f / info.AttackSpeed, 1f / info.AttackSpeed);
+			// InvokeRepeating(nameof(TriggerAttack), 1f / info.AttackSpeed, 1f / info.AttackSpeed);
 		}
 
-		private void RotateFirePointTowardsTarget()
+		private void Update()
 		{
-			if (!Target)
+			LookUpdate();
+		}
+
+		public void LookUpdate()
+		{
+			if (Party == null) return;
+
+			Vector3 moveDirection = Party.PartyLookPoint;
+			if (attackController.Target != null)
+			{
+				moveDirection = this.transform.position.DirectionTo(attackController.Target.transform.position);
+			}
+
+			Vector3 scale = this.GraphicsContainer.transform.localScale;
+			scale.x = moveDirection.x >= 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
+			this.GraphicsContainer.transform.localScale = scale;
+		}
+
+
+		public void RotateFirePointTowardsTarget(Transform targetTransform)
+		{
+			if (!targetTransform)
 			{
 				return;
 			}
 
-			float angle = Helper.GetAngleFromVector(firePoint.position.DirectionTo(Target.transform.position));
+			float angle = Helper.GetAngleFromVector(firePoint.position.DirectionTo(targetTransform.transform.position));
 			firePoint.eulerAngles = new Vector3(0, 0, angle);
 		}
 
-		private void TriggerAttack()
-		{
-			if (attackController != null)
-				attackController.Activate(Target);
+		// private void TriggerAttack()
+		// {
+		// 	if (attackController != null)
+		// 		attackController.Activate(Target);
 
-			if (!Target)
-			{
-				return;
-			}
+		// 	if (!Target)
+		// 	{
+		// 		return;
+		// 	}
 
-			float distanceToTarget = Vector2.Distance(Target.position, transform.position);
+		// 	float distanceToTarget = Vector2.Distance(Target.position, transform.position);
 
-			if (distanceToTarget > Info.AttackRadius)
-			{
-				Target = null;
-				return;
-			}
+		// 	if (distanceToTarget > Info.AttackRadius)
+		// 	{
+		// 		Target = null;
+		// 		return;
+		// 	}
 
-			GraphicsContainer.BodySpriteRenderer.transform.DOScale(Vector3.one, .3f)
-				.From(Vector3.one * 1.25f)
-				.SetEase(Ease.OutBounce);
+		// 	GraphicsContainer.BodySpriteRenderer.transform.DOScale(Vector3.one, .3f)
+		// 		.From(Vector3.one * 1.25f)
+		// 		.SetEase(Ease.OutBounce);
 
-			RotateFirePointTowardsTarget();
+		// 	RotateFirePointTowardsTarget();
 
-			// Attack();
-		}
+		// 	// Attack();
+		// }
 
-		private void Attack()
-		{
-			Transform weaponTransform;
+		// private void Attack()
+		// {
+		// 	Transform weaponTransform;
 
-			(weaponTransform = GraphicsContainer.WeaponSpriteRenderer.transform).DOScale(Vector3.one, .3f)
-				.From(Vector3.one * 1.25f)
-				.SetEase(Ease.OutBounce);
+		// 	(weaponTransform = GraphicsContainer.WeaponSpriteRenderer.transform).DOScale(Vector3.one, .3f)
+		// 		.From(Vector3.one * 1.25f)
+		// 		.SetEase(Ease.OutBounce);
 
-			Health targetHealth = Target.GetComponent<Health>();
+		// 	Health targetHealth = Target.GetComponent<Health>();
 
-			if (Info.projectile != null)
-			{
-				Instantiate(muzzlePrefab, weaponTransform.position, Quaternion.identity);
-				Info.LaunchProjectile(firePoint, targetHealth);
-			}
-			else
-			{
-				targetHealth.TakeDamage(Info.Damage);
-				if (Info.specialEffect != null) Info.specialEffect.Activate();
-			}
-		}
+		// 	if (Info.projectile != null)
+		// 	{
+		// 		Instantiate(muzzlePrefab, weaponTransform.position, Quaternion.identity);
+		// 		Info.LaunchProjectile(firePoint, targetHealth);
+		// 	}
+		// 	else
+		// 	{
+		// 		targetHealth.TakeDamage(Info.Damage);
+		// 		if (Info.specialEffect != null) Info.specialEffect.Activate();
+		// 	}
+		// }
 
 		public void AttackAnimation()
 		{

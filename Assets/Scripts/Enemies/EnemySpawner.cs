@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using GMTK.Characters;
 using GMTK.Levels;
 using UnityEngine;
-using CharacterInfo = GMTK.Info.CharacterInfo;
+using CharacterInfo = GMTK.Info.ClassInfo;
 
 namespace GMTK.Enemies
 {
